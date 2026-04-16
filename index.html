@@ -13,7 +13,7 @@ body{
   color:#f5e6c8;
 }
 
-/* BACKGROUND */
+/* háttér */
 .bg{
   position:fixed;
   width:100%;
@@ -25,7 +25,7 @@ body{
   z-index:-1;
 }
 
-/* HEADER */
+/* header */
 header{
   text-align:center;
   padding:60px 20px 20px;
@@ -37,13 +37,13 @@ h1{
   text-shadow:0 0 25px gold;
 }
 
-/* NAV */
+/* nav */
 nav{
   display:flex;
   justify-content:center;
   gap:10px;
-  flex-wrap:wrap;
   margin-top:20px;
+  flex-wrap:wrap;
 }
 
 nav a{
@@ -59,14 +59,14 @@ nav a.active{
   color:black;
 }
 
-/* CONTAINER */
+/* layout */
 .container{
   max-width:1100px;
   margin:auto;
   padding:30px;
 }
 
-/* PANELS */
+/* panel */
 .panel{display:none;}
 .panel.active{display:block;}
 
@@ -96,7 +96,7 @@ nav a.active{
   color:gold;
 }
 
-/* CARD */
+/* card */
 .card{
   background:rgba(255,215,0,0.05);
   border:1px solid rgba(255,215,0,0.2);
@@ -105,7 +105,7 @@ nav a.active{
   margin-bottom:20px;
 }
 
-/* GRID */
+/* grid */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -134,81 +134,80 @@ footer{
   <h1>𓂀 Egyptian Gods</h1>
 
   <nav>
-    <a class="active" onclick="show('home', this)">Home</a>
+    <a class="active" onclick="show('home', this)">Anubis</a>
     <a onclick="show('gods', this)">Gods</a>
-    <a onclick="show('afterlife', this)">Afterlife</a>
+    <a onclick="show('afterlife', this)">Pyramids</a>
   </nav>
 </header>
 
 <div class="container">
 
-<!-- HOME -->
+<!-- 🔥 ANUBIS (FŐOLDAL) -->
 <div id="home" class="panel active">
 
   <div class="hero">
-    <img src="https://images.unsplash.com/photo-1601042879364-f3947d3f9c16">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Anubis.svg/512px-Anubis.svg.png">
     <div class="hero-text">
       <h2>Anubis</h2>
-      <p>Guardian of the dead and guide of souls into the afterlife.</p>
+      <p>God of death, embalming, and protector of souls in the afterlife.</p>
     </div>
   </div>
 
   <div class="card">
-    <h2>The Egyptian Pantheon</h2>
-    <p>The ancient Egyptian gods ruled over life, death, and the cosmos. Each deity controlled a different aspect of existence.</p>
+    <h2>The Guardian of the Dead</h2>
+    <p>Anubis guided souls through the underworld and oversaw the weighing of the heart.</p>
   </div>
 
 </div>
 
-<!-- GODS -->
+<!-- 🏺 ISTENEK -->
 <div id="gods" class="panel">
   <div class="grid">
 
     <div class="card">
-      <h3>Anubis</h3>
-      <img src="https://images.unsplash.com/photo-1601042879364-f3947d3f9c16">
-      <p>God of mummification and protector of graves.</p>
-    </div>
-
-    <div class="card">
       <h3>Ra</h3>
-      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Ra.svg">
       <p>Sun god and creator.</p>
     </div>
 
     <div class="card">
       <h3>Osiris</h3>
-      <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Osiris.svg">
       <p>Lord of the underworld.</p>
     </div>
 
     <div class="card">
       <h3>Isis</h3>
-      <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Isis.svg">
       <p>Goddess of magic and motherhood.</p>
     </div>
 
     <div class="card">
       <h3>Horus</h3>
-      <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090">
-      <p>God of the sky, depicted as a falcon.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Horus.svg">
+      <p>God of the sky, represented as a falcon.</p>
     </div>
 
   </div>
 </div>
 
-<!-- AFTERLIFE -->
+<!-- 🏜 PIRAMISOK -->
 <div id="afterlife" class="panel">
-  <div class="card">
-    <h2>Weighing of the Heart</h2>
-    <p>The heart is weighed against the feather of truth to determine the soul's fate.</p>
-  </div>
+  <div class="grid">
 
-  <div class="card">
-    <h2>Duat</h2>
-    <p>The underworld realm where souls journey after death.</p>
-  </div>
+    <div class="card">
+      <h3>Great Pyramid of Giza</h3>
+      <img src="https://images.unsplash.com/photo-1505739773440-2db1f1c3a2c3">
+      <p>The most famous pyramid, built as a tomb for Pharaoh Khufu.</p>
+    </div>
 
+    <div class="card">
+      <h3>Pyramid Complex</h3>
+      <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f0e">
+      <p>Massive structures built to guide pharaohs into the afterlife.</p>
+    </div>
+
+  </div>
 </div>
 
 </div>
