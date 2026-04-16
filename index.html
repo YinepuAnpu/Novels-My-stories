@@ -3,125 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sci-Fi Universe Hub</title>
+<title>Galactic Hitchhiker Guide</title>
 
 <style>
 * {margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 
 body {
-  background: black;
-  color: #eaf1ff;
-  overflow-x: hidden;
+  background:black;
+  color:#eaf2ff;
+  overflow-x:hidden;
 }
 
-/* 🌌 BACKGROUND */
-.bg {
-  position: fixed;
-  width:100%;
-  height:100%;
-  background: radial-gradient(circle at 20% 20%, #1b2a6b, transparent 40%),
-              radial-gradient(circle at 80% 30%, #3b1b6b, transparent 45%),
-              radial-gradient(circle at 50% 80%, #0b3b5a, transparent 50%);
-  z-index:-2;
-}
-
-.stars {
+/* 🌌 COSMIC BACKGROUND */
+.space {
   position:fixed;
   width:100%;
   height:100%;
-  z-index:-1;
+  background:
+    radial-gradient(circle at 10% 20%, #2a1b6b, transparent 40%),
+    radial-gradient(circle at 90% 30%, #0b3b5a, transparent 45%),
+    radial-gradient(circle at 50% 90%, #3b1b2f, transparent 50%),
+    black;
+  z-index:-3;
 }
 
+/* ⭐ STARS */
 .stars::before {
   content:"";
-  position:absolute;
+  position:fixed;
   width:200%;
   height:200%;
   box-shadow:
-    100px 200px white, 300px 500px white, 600px 200px white,
-    900px 800px white, 1200px 300px white, 400px 1000px white;
-  animation:move 120s linear infinite;
-  opacity:.5;
+    80px 120px white, 200px 300px white, 400px 600px white,
+    700px 200px white, 900px 500px white, 1100px 900px white,
+    1300px 300px white, 1500px 700px white;
+  animation: drift 160s linear infinite;
+  opacity:.6;
+  z-index:-2;
 }
 
-@keyframes move {
-  from{transform:translateY(0)}
-  to{transform:translateY(-1200px)}
+@keyframes drift {
+  from {transform:translateY(0)}
+  to {transform:translateY(-1400px)}
 }
 
 /* HEADER */
 header {
   text-align:center;
-  padding:60px 20px 20px;
+  padding:60px 20px 10px;
 }
 
 h1 {
-  font-size:50px;
-  text-shadow:0 0 20px #6ea8ff;
+  font-size:52px;
+  text-shadow:0 0 25px #7aa7ff;
 }
 
 .sub {
-  color:#9bbcff;
+  color:#9dbbff;
+  margin-top:10px;
 }
 
-/* TABS */
-.tabs {
+/* WARNING BANNER */
+.banner {
+  margin:20px auto;
+  max-width:700px;
+  padding:10px 15px;
+  border:1px solid rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.05);
+  border-radius:12px;
+  text-align:center;
+  font-size:13px;
+  color:#ffdf7a;
+}
+
+/* NAV */
+nav {
   display:flex;
   justify-content:center;
-  gap:10px;
-  margin:30px 0;
   flex-wrap:wrap;
+  gap:10px;
+  margin:25px 0;
 }
 
-.tab {
-  padding:10px 16px;
-  border:1px solid rgba(255,255,255,0.1);
+nav button {
   background:rgba(255,255,255,0.05);
-  cursor:pointer;
+  border:1px solid rgba(255,255,255,0.1);
+  color:white;
+  padding:10px 14px;
   border-radius:10px;
+  cursor:pointer;
   transition:.3s;
 }
 
-.tab:hover {
+nav button:hover {
   transform:scale(1.1);
   box-shadow:0 0 20px #4a6cff;
 }
 
-/* CONTENT */
+/* MAIN */
 .container {
   max-width:1000px;
   margin:auto;
   padding:20px;
 }
 
-.panel {
-  display:none;
-  animation:fade .4s ease-in-out;
-}
-
-.panel.active {
-  display:block;
-}
-
-@keyframes fade {
-  from {opacity:0; transform:translateY(10px);}
-  to {opacity:1; transform:translateY(0);}
-}
-
 /* CARDS */
 .card {
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.1);
-  padding:20px;
+  padding:18px;
   border-radius:14px;
-  margin-bottom:20px;
+  margin-bottom:15px;
   backdrop-filter:blur(10px);
+  transition:.3s;
 }
 
-.card img {
-  width:100%;
-  border-radius:10px;
-  margin-top:10px;
+.card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 0 25px rgba(120,160,255,0.3);
+}
+
+/* HITCHHIKER STYLE TAG */
+.tag {
+  font-size:12px;
+  color:#ffdf7a;
+  margin-bottom:8px;
 }
 
 /* GRID */
@@ -131,14 +137,14 @@ h1 {
   gap:15px;
 }
 
-.small {
-  font-size:13px;
-  color:#8fb0ff;
-}
+/* HIDDEN PANELS */
+.panel {display:none;}
+.panel.active {display:block;}
 
 footer {
   text-align:center;
   padding:30px;
+  font-size:12px;
   color:#555;
 }
 </style>
@@ -146,102 +152,106 @@ footer {
 
 <body>
 
-<div class="bg"></div>
+<div class="space"></div>
 <div class="stars"></div>
 
 <header>
-  <h1>🚀 Sci-Fi Universe Hub</h1>
-  <div class="sub">Explore worlds, factions and story projects</div>
+  <h1>🌌 Galactic Hitchhiker Guide</h1>
+  <div class="sub">DON'T PANIC — you are here.</div>
+
+  <div class="banner">
+    ⚠️ Warning: Reality in this sector is mostly optional and occasionally sarcastic.
+  </div>
 </header>
 
-<!-- TABS -->
-<div class="tabs">
-  <div class="tab" onclick="show('stories')">📖 Stories</div>
-  <div class="tab" onclick="show('worlds')">🌌 Worlds</div>
-  <div class="tab" onclick="show('projects')">🧠 Projects</div>
-  <div class="tab" onclick="show('gallery')">🖼 Gallery</div>
-</div>
+<nav>
+  <button onclick="show('guide')">📘 Guide</button>
+  <button onclick="show('planets')">🪐 Planets</button>
+  <button onclick="show('factions')">⚔️ Factions</button>
+  <button onclick="show('weird')">🧠 Anomalies</button>
+</nav>
 
 <div class="container">
 
-<!-- STORIES -->
-<div id="stories" class="panel active">
+<!-- GUIDE -->
+<div id="guide" class="panel active">
   <div class="card">
-    <h2>Beyond the Last Orbit</h2>
-    <div class="small">Main storyline</div>
-    <p>A ship crosses into a region where physics begins to collapse and memories rewrite reality.</p>
+    <div class="tag">ENTRY #42</div>
+    <h2>How to survive the galaxy</h2>
+    <p>If you are reading this, you have probably already ignored several warning signs. Good.</p>
   </div>
 
   <div class="card">
-    <h2>The Silent Expansion</h2>
-    <div class="small">Side story</div>
-    <p>Colonies disappear without trace while the universe continues expanding silently.</p>
+    <div class="tag">IMPORTANT</div>
+    <p>Always carry a towel. Nobody knows why, but it works.</p>
   </div>
 </div>
 
-<!-- WORLDS -->
-<div id="worlds" class="panel">
+<!-- PLANETS -->
+<div id="planets" class="panel">
   <div class="grid">
 
     <div class="card">
-      <h3>Nova Terra</h3>
-      <p class="small">Earth-like colony world</p>
+      <h3>Virellia Prime</h3>
+      <p class="tag">Mostly harmless</p>
+      <p>A planet where gravity occasionally forgets what it’s doing.</p>
     </div>
 
     <div class="card">
-      <h3>Abyss Station</h3>
-      <p class="small">Deep space research hub</p>
+      <h3>Gronth IX</h3>
+      <p class="tag">Avoid Mondays</p>
+      <p>Home of bureaucratic wormholes and extremely polite space pirates.</p>
     </div>
 
     <div class="card">
-      <h3>Virellion Belt</h3>
-      <p class="small">Forbidden asteroid region</p>
+      <h3>NULL-Ω</h3>
+      <p class="tag">DO NOT OBSERVE DIRECTLY</p>
+      <p>This planet exists only when you are not looking at it.</p>
     </div>
 
   </div>
 </div>
 
-<!-- PROJECTS -->
-<div id="projects" class="panel">
+<!-- FACTIONS -->
+<div id="factions" class="panel">
   <div class="card">
-    <h2>Quantum Signal Project</h2>
-    <p class="small">Research log</p>
-    <p>Attempting to decode non-random signals coming from outside known space.</p>
+    <h3>The Bureaucratic Empire</h3>
+    <p>They control everything through forms, signatures, and existential dread.</p>
   </div>
 
   <div class="card">
-    <h2>AI Archivist</h2>
-    <p class="small">System prototype</p>
-    <p>An AI that reconstructs lost civilizations from fragmented data.</p>
+    <h3>Order of Slight Chaos</h3>
+    <p>Believes the universe works better when nobody fully understands it.</p>
+  </div>
+
+  <div class="card">
+    <h3>The Infinite Hitchhikers</h3>
+    <p>Travel forever, mostly because they forgot where they started.</p>
   </div>
 </div>
 
-<!-- GALLERY -->
-<div id="gallery" class="panel">
-  <div class="grid">
+<!-- ANOMALIES -->
+<div id="weird" class="panel">
+  <div class="card">
+    <h3>Time Loop Café</h3>
+    <p>You enter, order coffee, and leave before you arrived.</p>
+  </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa" alt="">
-      <p class="small">Deep space field</p>
-    </div>
+  <div class="card">
+    <h3>The Whispering Vacuum</h3>
+    <p>Space that occasionally gives unsolicited advice.</p>
+  </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564" alt="">
-      <p class="small">Galaxy formation</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="">
-      <p class="small">Unknown nebula</p>
-    </div>
-
+  <div class="card">
+    <h3>Probability Storm</h3>
+    <p>It rains outcomes instead of water. Bring an umbrella of uncertainty.</p>
   </div>
 </div>
 
 </div>
 
 <footer>
-Sci-Fi Universe Hub • GitHub Pages
+DON'T PANIC • Galactic Hitchhiker Guide • Sector 7G
 </footer>
 
 <script>
