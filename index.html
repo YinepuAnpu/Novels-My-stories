@@ -3,149 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galactic Hitchhiker Guide</title>
+<title>Sci-Fi Universe</title>
 
 <style>
-* {margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  background:black;
-  color:#eaf2ff;
-  overflow-x:hidden;
+  font-family: Arial, sans-serif;
+  color: #eaf0ff;
+  background: black;
+  overflow-x: hidden;
 }
 
-/* 🌌 COSMIC BACKGROUND */
+/* 🌌 SPACE BACKGROUND */
 .space {
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:
-    radial-gradient(circle at 10% 20%, #2a1b6b, transparent 40%),
-    radial-gradient(circle at 90% 30%, #0b3b5a, transparent 45%),
-    radial-gradient(circle at 50% 90%, #3b1b2f, transparent 50%),
-    black;
-  z-index:-3;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, #1b2a6b, transparent 40%),
+              radial-gradient(circle at 80% 30%, #3a1b6b, transparent 45%),
+              radial-gradient(circle at 50% 80%, #0b3b5a, transparent 50%),
+              black;
+  z-index: -2;
 }
 
-/* ⭐ STARS */
-.stars::before {
-  content:"";
-  position:fixed;
-  width:200%;
-  height:200%;
+/* ✨ STARS */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+}
+
+.stars::before,
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: transparent;
   box-shadow:
-    80px 120px white, 200px 300px white, 400px 600px white,
-    700px 200px white, 900px 500px white, 1100px 900px white,
-    1300px 300px white, 1500px 700px white;
-  animation: drift 160s linear infinite;
-  opacity:.6;
-  z-index:-2;
+    100px 200px white,
+    300px 500px white,
+    600px 200px white,
+    900px 800px white,
+    1200px 300px white,
+    400px 1000px white,
+    1500px 600px white;
+  animation: moveStars 120s linear infinite;
+  opacity: 0.6;
 }
 
-@keyframes drift {
-  from {transform:translateY(0)}
-  to {transform:translateY(-1400px)}
+.stars::after {
+  animation-duration: 180s;
+  opacity: 0.3;
+}
+
+@keyframes moveStars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1000px); }
 }
 
 /* HEADER */
 header {
-  text-align:center;
-  padding:60px 20px 10px;
+  text-align: center;
+  padding: 80px 20px 30px;
 }
 
 h1 {
-  font-size:52px;
-  text-shadow:0 0 25px #7aa7ff;
+  font-size: 54px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 20px #6ea8ff;
 }
 
-.sub {
-  color:#9dbbff;
-  margin-top:10px;
-}
-
-/* WARNING BANNER */
-.banner {
-  margin:20px auto;
-  max-width:700px;
-  padding:10px 15px;
-  border:1px solid rgba(255,255,255,0.2);
-  background:rgba(255,255,255,0.05);
-  border-radius:12px;
-  text-align:center;
-  font-size:13px;
-  color:#ffdf7a;
+.subtitle {
+  color: #9bbcff;
+  margin-top: 10px;
 }
 
 /* NAV */
 nav {
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-  margin:25px 0;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
-nav button {
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.1);
-  color:white;
-  padding:10px 14px;
-  border-radius:10px;
-  cursor:pointer;
-  transition:.3s;
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
 }
 
-nav button:hover {
-  transform:scale(1.1);
-  box-shadow:0 0 20px #4a6cff;
+nav a:hover {
+  transform: scale(1.1);
+  background: rgba(100,150,255,0.2);
+  box-shadow: 0 0 20px #4a6cff;
 }
 
-/* MAIN */
+/* CONTENT */
 .container {
-  max-width:1000px;
-  margin:auto;
-  padding:20px;
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
-/* CARDS */
+/* GLASS CARDS */
 .card {
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.1);
-  padding:18px;
-  border-radius:14px;
-  margin-bottom:15px;
-  backdrop-filter:blur(10px);
-  transition:.3s;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(12px);
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform:translateY(-6px);
-  box-shadow:0 0 25px rgba(120,160,255,0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(100,150,255,0.4);
 }
 
-/* HITCHHIKER STYLE TAG */
 .tag {
-  font-size:12px;
-  color:#ffdf7a;
-  margin-bottom:8px;
+  color: #7aa7ff;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
-/* GRID */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:15px;
-}
-
-/* HIDDEN PANELS */
-.panel {display:none;}
-.panel.active {display:block;}
-
+/* FOOTER */
 footer {
-  text-align:center;
-  padding:30px;
-  font-size:12px;
-  color:#555;
+  text-align: center;
+  padding: 30px;
+  font-size: 12px;
+  color: #666;
 }
 </style>
 </head>
@@ -156,110 +157,40 @@ footer {
 <div class="stars"></div>
 
 <header>
-  <h1>🌌 Galactic Hitchhiker Guide</h1>
-  <div class="sub">DON'T PANIC — you are here.</div>
+  <h1>🚀 Sci-Fi Universe</h1>
+  <div class="subtitle">A living galaxy of stories and worlds</div>
 
-  <div class="banner">
-    ⚠️ Warning: Reality in this sector is mostly optional and occasionally sarcastic.
-  </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Stories</a>
+    <a href="#">Worlds</a>
+    <a href="#">Characters</a>
+  </nav>
 </header>
-
-<nav>
-  <button onclick="show('guide')">📘 Guide</button>
-  <button onclick="show('planets')">🪐 Planets</button>
-  <button onclick="show('factions')">⚔️ Factions</button>
-  <button onclick="show('weird')">🧠 Anomalies</button>
-</nav>
 
 <div class="container">
 
-<!-- GUIDE -->
-<div id="guide" class="panel active">
   <div class="card">
-    <div class="tag">ENTRY #42</div>
-    <h2>How to survive the galaxy</h2>
-    <p>If you are reading this, you have probably already ignored several warning signs. Good.</p>
+    <div class="tag">FEATURED STORY</div>
+    <h2>Beyond the Last Orbit</h2>
+    <p>A ship drifts beyond known space where time begins to collapse and memories rewrite reality.</p>
   </div>
 
   <div class="card">
-    <div class="tag">IMPORTANT</div>
-    <p>Always carry a towel. Nobody knows why, but it works.</p>
-  </div>
-</div>
-
-<!-- PLANETS -->
-<div id="planets" class="panel">
-  <div class="grid">
-
-    <div class="card">
-      <h3>Virellia Prime</h3>
-      <p class="tag">Mostly harmless</p>
-      <p>A planet where gravity occasionally forgets what it’s doing.</p>
-    </div>
-
-    <div class="card">
-      <h3>Gronth IX</h3>
-      <p class="tag">Avoid Mondays</p>
-      <p>Home of bureaucratic wormholes and extremely polite space pirates.</p>
-    </div>
-
-    <div class="card">
-      <h3>NULL-Ω</h3>
-      <p class="tag">DO NOT OBSERVE DIRECTLY</p>
-      <p>This planet exists only when you are not looking at it.</p>
-    </div>
-
-  </div>
-</div>
-
-<!-- FACTIONS -->
-<div id="factions" class="panel">
-  <div class="card">
-    <h3>The Bureaucratic Empire</h3>
-    <p>They control everything through forms, signatures, and existential dread.</p>
+    <div class="tag">UNIVERSE LOG</div>
+    <p>This universe is expanding. New planets, factions, and timelines will appear over time.</p>
   </div>
 
   <div class="card">
-    <h3>Order of Slight Chaos</h3>
-    <p>Believes the universe works better when nobody fully understands it.</p>
+    <div class="tag">NAVIGATION</div>
+    <p>Explore different worlds using the menu above. Each section will evolve into its own story arc.</p>
   </div>
-
-  <div class="card">
-    <h3>The Infinite Hitchhikers</h3>
-    <p>Travel forever, mostly because they forgot where they started.</p>
-  </div>
-</div>
-
-<!-- ANOMALIES -->
-<div id="weird" class="panel">
-  <div class="card">
-    <h3>Time Loop Café</h3>
-    <p>You enter, order coffee, and leave before you arrived.</p>
-  </div>
-
-  <div class="card">
-    <h3>The Whispering Vacuum</h3>
-    <p>Space that occasionally gives unsolicited advice.</p>
-  </div>
-
-  <div class="card">
-    <h3>Probability Storm</h3>
-    <p>It rains outcomes instead of water. Bring an umbrella of uncertainty.</p>
-  </div>
-</div>
 
 </div>
 
 <footer>
-DON'T PANIC • Galactic Hitchhiker Guide • Sector 7G
+  Sci-Fi Universe Project • GitHub Pages
 </footer>
-
-<script>
-function show(id){
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-</script>
 
 </body>
 </html>
