@@ -3,39 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sci-Fi Universe_new</title>
+<title>Sci-Fi Universe</title>
 
 <style>
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: Arial, sans-serif;
-  color: #e6e6e6;
-  background: radial-gradient(circle at top, #050814, #000);
+  color: #eaf0ff;
+  background: black;
   overflow-x: hidden;
 }
 
-/* STAR BACKGROUND */
+/* 🌌 SPACE BACKGROUND */
+.space {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, #1b2a6b, transparent 40%),
+              radial-gradient(circle at 80% 30%, #3a1b6b, transparent 45%),
+              radial-gradient(circle at 50% 80%, #0b3b5a, transparent 50%),
+              black;
+  z-index: -2;
+}
+
+/* ✨ STARS */
 .stars {
   position: fixed;
   width: 100%;
   height: 100%;
   background: transparent;
-  overflow: hidden;
-  z-index: 0;
+  z-index: -1;
 }
 
+.stars::before,
 .stars::after {
   content: "";
   position: absolute;
   width: 200%;
   height: 200%;
-  background: radial-gradient(2px 2px at 20px 30px, white, transparent),
-              radial-gradient(2px 2px at 50px 80px, white, transparent),
-              radial-gradient(1px 1px at 90px 120px, white, transparent),
-              radial-gradient(1px 1px at 130px 200px, white, transparent);
-  background-repeat: repeat;
-  animation: moveStars 60s linear infinite;
-  opacity: 0.4;
+  background: transparent;
+  box-shadow:
+    100px 200px white,
+    300px 500px white,
+    600px 200px white,
+    900px 800px white,
+    1200px 300px white,
+    400px 1000px white,
+    1500px 600px white;
+  animation: moveStars 120s linear infinite;
+  opacity: 0.6;
+}
+
+.stars::after {
+  animation-duration: 180s;
+  opacity: 0.3;
 }
 
 @keyframes moveStars {
@@ -46,72 +72,73 @@ body {
 /* HEADER */
 header {
   text-align: center;
-  padding: 80px 20px 40px;
-  position: relative;
-  z-index: 1;
+  padding: 80px 20px 30px;
 }
 
 h1 {
-  font-size: 48px;
-  margin: 0;
-  letter-spacing: 2px;
+  font-size: 54px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 20px #6ea8ff;
 }
 
 .subtitle {
-  color: #8aa6ff;
+  color: #9bbcff;
   margin-top: 10px;
 }
 
-/* MENU */
+/* NAV */
 nav {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 nav a {
-  color: #cfd8ff;
   text-decoration: none;
-  padding: 10px 18px;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
   transition: 0.3s;
 }
 
 nav a:hover {
-  background: #4a6cff;
-  color: white;
-  transform: scale(1.05);
+  transform: scale(1.1);
+  background: rgba(100,150,255,0.2);
+  box-shadow: 0 0 20px #4a6cff;
 }
 
-/* MAIN */
+/* CONTENT */
 .container {
   max-width: 900px;
   margin: auto;
   padding: 40px 20px;
-  position: relative;
-  z-index: 1;
 }
 
+/* GLASS CARDS */
 .card {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
   padding: 20px;
-  border-radius: 12px;
   margin-bottom: 20px;
+  backdrop-filter: blur(12px);
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  border-color: #4a6cff;
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(100,150,255,0.4);
 }
 
-/* BOOK FEEL */
-.book-title {
-  font-size: 20px;
-  color: #9fb3ff;
+.tag {
+  color: #7aa7ff;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 /* FOOTER */
@@ -126,16 +153,17 @@ footer {
 
 <body>
 
+<div class="space"></div>
 <div class="stars"></div>
 
 <header>
   <h1>🚀 Sci-Fi Universe</h1>
-  <div class="subtitle">A living book of worlds, stories and futures</div>
+  <div class="subtitle">A living galaxy of stories and worlds</div>
 
   <nav>
     <a href="#">Home</a>
     <a href="#">Stories</a>
-    <a href="#">World</a>
+    <a href="#">Worlds</a>
     <a href="#">Characters</a>
   </nav>
 </header>
@@ -143,25 +171,25 @@ footer {
 <div class="container">
 
   <div class="card">
-    <div class="book-title">📖 Featured Story</div>
+    <div class="tag">FEATURED STORY</div>
     <h2>Beyond the Last Orbit</h2>
-    <p>A journey beyond known space where time begins to collapse...</p>
+    <p>A ship drifts beyond known space where time begins to collapse and memories rewrite reality.</p>
   </div>
 
   <div class="card">
-    <div class="book-title">🌌 Universe Note</div>
-    <p>This is a growing sci-fi universe. New chapters and worlds will be added continuously.</p>
+    <div class="tag">UNIVERSE LOG</div>
+    <p>This universe is expanding. New planets, factions, and timelines will appear over time.</p>
   </div>
 
   <div class="card">
-    <div class="book-title">🧭 Navigation</div>
-    <p>Use the menu above to explore stories, characters and the universe lore.</p>
+    <div class="tag">NAVIGATION</div>
+    <p>Explore different worlds using the menu above. Each section will evolve into its own story arc.</p>
   </div>
 
 </div>
 
 <footer>
-  Built as a Sci-Fi Universe • GitHub Pages
+  Sci-Fi Universe Project • GitHub Pages
 </footer>
 
 </body>
