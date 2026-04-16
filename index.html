@@ -3,150 +3,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sci-Fi Universe</title>
+<title>Galaxy Guide</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+
+body{
+  background:black;
+  color:#eaf2ff;
+  overflow-x:hidden;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  color: #eaf0ff;
-  background: black;
-  overflow-x: hidden;
+/* 🌌 MULTI LAYER SPACE */
+.space{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:
+    radial-gradient(circle at 20% 20%, #1b2a6b, transparent 40%),
+    radial-gradient(circle at 80% 30%, #3b1b6b, transparent 45%),
+    radial-gradient(circle at 50% 80%, #0b3b5a, transparent 50%),
+    black;
+  z-index:-3;
 }
 
-/* 🌌 SPACE BACKGROUND */
-.space {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 20%, #1b2a6b, transparent 40%),
-              radial-gradient(circle at 80% 30%, #3a1b6b, transparent 45%),
-              radial-gradient(circle at 50% 80%, #0b3b5a, transparent 50%),
-              black;
-  z-index: -2;
+/* ✨ STARS LAYERS */
+.stars, .stars2{
+  position:fixed;
+  width:100%;
+  height:100%;
 }
 
-/* ✨ STARS */
-.stars {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  z-index: -1;
-}
-
-.stars::before,
-.stars::after {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: transparent;
+.stars::before, .stars2::before{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  background:transparent;
   box-shadow:
-    100px 200px white,
-    300px 500px white,
-    600px 200px white,
-    900px 800px white,
-    1200px 300px white,
-    400px 1000px white,
-    1500px 600px white;
-  animation: moveStars 120s linear infinite;
-  opacity: 0.6;
+    100px 200px white, 300px 500px white, 600px 200px white,
+    900px 800px white, 1200px 300px white, 400px 1000px white,
+    1500px 600px white, 1700px 200px white, 1900px 900px white;
 }
 
-.stars::after {
-  animation-duration: 180s;
-  opacity: 0.3;
+.stars::before{
+  animation:move1 120s linear infinite;
+  opacity:.7;
 }
 
-@keyframes moveStars {
-  from { transform: translateY(0); }
-  to { transform: translateY(-1000px); }
+.stars2::before{
+  animation:move2 200s linear infinite;
+  opacity:.3;
+}
+
+@keyframes move1{
+  from{transform:translateY(0)}
+  to{transform:translateY(-1200px)}
+}
+
+@keyframes move2{
+  from{transform:translateY(0)}
+  to{transform:translateY(-2000px)}
 }
 
 /* HEADER */
-header {
-  text-align: center;
-  padding: 80px 20px 30px;
+header{
+  text-align:center;
+  padding:80px 20px 30px;
 }
 
-h1 {
-  font-size: 54px;
-  letter-spacing: 3px;
-  text-shadow: 0 0 20px #6ea8ff;
+h1{
+  font-size:56px;
+  text-shadow:0 0 30px #6ea8ff;
 }
 
-.subtitle {
-  color: #9bbcff;
-  margin-top: 10px;
+.subtitle{
+  color:#9bbcff;
+  margin-top:10px;
 }
 
 /* NAV */
-nav {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
+nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:25px;
 }
 
-nav a {
-  text-decoration: none;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  transition: 0.3s;
+nav a{
+  cursor:pointer;
+  padding:10px 18px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  transition:.3s;
 }
 
-nav a:hover {
-  transform: scale(1.1);
-  background: rgba(100,150,255,0.2);
-  box-shadow: 0 0 20px #4a6cff;
+nav a:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 25px #4a6cff;
 }
 
-/* CONTENT */
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 40px 20px;
+/* CONTAINER */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:30px;
 }
 
-/* GLASS CARDS */
-.card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 20px;
-  backdrop-filter: blur(12px);
-  transition: 0.3s;
+/* PANELS */
+.panel{display:none;}
+.panel.active{display:block;}
+
+/* CARDS */
+.card{
+  background:rgba(255,255,255,0.05);
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:20px;
+  backdrop-filter:blur(10px);
+  transition:.4s;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 25px rgba(100,150,255,0.4);
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 0 40px rgba(120,160,255,0.6);
 }
 
-.tag {
-  color: #7aa7ff;
-  font-size: 14px;
-  margin-bottom: 10px;
+/* IMAGE GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:15px;
+}
+
+.card img{
+  width:100%;
+  border-radius:12px;
+  margin-top:10px;
+  transition:.4s;
+}
+
+.card img:hover{
+  transform:scale(1.05);
+}
+
+/* TAG */
+.tag{
+  font-size:12px;
+  color:#ffdf7a;
+  margin-bottom:8px;
 }
 
 /* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  font-size: 12px;
-  color: #666;
+footer{
+  text-align:center;
+  padding:30px;
+  color:#555;
 }
 </style>
 </head>
@@ -155,42 +169,96 @@ footer {
 
 <div class="space"></div>
 <div class="stars"></div>
+<div class="stars2"></div>
 
 <header>
-  <h1>🚀 Sci-Fi Universe</h1>
-  <div class="subtitle">A living galaxy of stories and worlds</div>
+  <h1>🌌 Galaxy Guide</h1>
+  <div class="subtitle">DON'T PANIC — explore everything</div>
 
   <nav>
-    <a href="#">Home</a>
-    <a href="#">Stories</a>
-    <a href="#">Worlds</a>
-    <a href="#">Characters</a>
+    <a onclick="show('home')">Home</a>
+    <a onclick="show('worlds')">Worlds</a>
+    <a onclick="show('projects')">Projects</a>
+    <a onclick="show('gallery')">Gallery</a>
   </nav>
 </header>
 
 <div class="container">
 
+<!-- HOME -->
+<div id="home" class="panel active">
   <div class="card">
-    <div class="tag">FEATURED STORY</div>
-    <h2>Beyond the Last Orbit</h2>
-    <p>A ship drifts beyond known space where time begins to collapse and memories rewrite reality.</p>
+    <div class="tag">ENTRY #42</div>
+    <h2>Welcome traveler</h2>
+    <p>The galaxy is big. Really big. You just won't believe how vastly, hugely, mind-bogglingly big it is.</p>
+    <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
+  </div>
+</div>
+
+<!-- WORLDS -->
+<div id="worlds" class="panel">
+  <div class="grid">
+
+    <div class="card">
+      <h3>Nova Terra</h3>
+      <p class="tag">Mostly harmless</p>
+      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa">
+    </div>
+
+    <div class="card">
+      <h3>Void-9</h3>
+      <p class="tag">DO NOT APPROACH</p>
+      <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564">
+    </div>
+
+    <div class="card">
+      <h3>Gronth IX</h3>
+      <p class="tag">Weird gravity</p>
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+    </div>
+
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" class="panel">
+  <div class="card">
+    <h2>Infinite Probability Drive</h2>
+    <p class="tag">Experimental</p>
+    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca">
   </div>
 
   <div class="card">
-    <div class="tag">UNIVERSE LOG</div>
-    <p>This universe is expanding. New planets, factions, and timelines will appear over time.</p>
+    <h2>Reality Engine</h2>
+    <p class="tag">Unstable</p>
+    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
   </div>
+</div>
 
-  <div class="card">
-    <div class="tag">NAVIGATION</div>
-    <p>Explore different worlds using the menu above. Each section will evolve into its own story arc.</p>
+<!-- GALLERY -->
+<div id="gallery" class="panel">
+  <div class="grid">
+
+    <div class="card"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa"></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa"></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564"></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"></div>
+
   </div>
+</div>
 
 </div>
 
 <footer>
-  Sci-Fi Universe Project • GitHub Pages
+DON'T PANIC • Galaxy Guide
 </footer>
+
+<script>
+function show(id){
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
 
 </body>
 </html>
