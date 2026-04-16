@@ -42,8 +42,8 @@ nav{
   display:flex;
   justify-content:center;
   gap:10px;
-  margin-top:20px;
   flex-wrap:wrap;
+  margin-top:20px;
 }
 
 nav a{
@@ -52,16 +52,11 @@ nav a{
   border-radius:10px;
   border:1px solid rgba(255,215,0,0.3);
   color:gold;
-  transition:.3s;
 }
 
 nav a.active{
   background:gold;
   color:black;
-}
-
-nav a:hover{
-  box-shadow:0 0 15px gold;
 }
 
 /* CONTAINER */
@@ -72,19 +67,8 @@ nav a:hover{
 }
 
 /* PANELS */
-.panel{
-  display:none;
-  animation:fade .4s ease;
-}
-
-.panel.active{
-  display:block;
-}
-
-@keyframes fade{
-  from{opacity:0;transform:translateY(10px)}
-  to{opacity:1;transform:translateY(0)}
-}
+.panel{display:none;}
+.panel.active{display:block;}
 
 /* HERO */
 .hero{
@@ -112,11 +96,7 @@ nav a:hover{
   color:gold;
 }
 
-.hero-text p{
-  max-width:500px;
-}
-
-/* CARDS */
+/* CARD */
 .card{
   background:rgba(255,215,0,0.05);
   border:1px solid rgba(255,215,0,0.2);
@@ -125,6 +105,7 @@ nav a:hover{
   margin-bottom:20px;
 }
 
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -156,7 +137,6 @@ footer{
     <a class="active" onclick="show('home', this)">Home</a>
     <a onclick="show('gods', this)">Gods</a>
     <a onclick="show('afterlife', this)">Afterlife</a>
-    <a onclick="show('gallery', this)">Gallery</a>
   </nav>
 </header>
 
@@ -166,16 +146,16 @@ footer{
 <div id="home" class="panel active">
 
   <div class="hero">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Anubis_standing.svg">
+    <img src="https://images.unsplash.com/photo-1601042879364-f3947d3f9c16">
     <div class="hero-text">
       <h2>Anubis</h2>
-      <p>God of the dead, protector of tombs, and guide of souls through the underworld.</p>
+      <p>Guardian of the dead and guide of souls into the afterlife.</p>
     </div>
   </div>
 
   <div class="card">
-    <h2>Welcome to the Realm</h2>
-    <p>Explore the ancient Egyptian pantheon, where gods rule over life, death, and eternity.</p>
+    <h2>The Egyptian Pantheon</h2>
+    <p>The ancient Egyptian gods ruled over life, death, and the cosmos. Each deity controlled a different aspect of existence.</p>
   </div>
 
 </div>
@@ -185,15 +165,33 @@ footer{
   <div class="grid">
 
     <div class="card">
+      <h3>Anubis</h3>
+      <img src="https://images.unsplash.com/photo-1601042879364-f3947d3f9c16">
+      <p>God of mummification and protector of graves.</p>
+    </div>
+
+    <div class="card">
       <h3>Ra</h3>
       <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
-      <p>Sun god and creator of all life.</p>
+      <p>Sun god and creator.</p>
     </div>
 
     <div class="card">
       <h3>Osiris</h3>
       <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da">
-      <p>Ruler of the underworld and judge of souls.</p>
+      <p>Lord of the underworld.</p>
+    </div>
+
+    <div class="card">
+      <h3>Isis</h3>
+      <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b">
+      <p>Goddess of magic and motherhood.</p>
+    </div>
+
+    <div class="card">
+      <h3>Horus</h3>
+      <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090">
+      <p>God of the sky, depicted as a falcon.</p>
     </div>
 
   </div>
@@ -203,16 +201,14 @@ footer{
 <div id="afterlife" class="panel">
   <div class="card">
     <h2>Weighing of the Heart</h2>
-    <p>The heart is judged against the feather of Ma’at to determine one's fate.</p>
+    <p>The heart is weighed against the feather of truth to determine the soul's fate.</p>
   </div>
-</div>
 
-<!-- GALLERY -->
-<div id="gallery" class="panel">
-  <div class="grid">
-    <div class="card"><img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f0e"></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1518684079-3c830dcef090"></div>
+  <div class="card">
+    <h2>Duat</h2>
+    <p>The underworld realm where souls journey after death.</p>
   </div>
+
 </div>
 
 </div>
