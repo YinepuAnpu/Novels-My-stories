@@ -3,194 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sci-Fi Universe</title>
+<title>Sci-Fi Universe Hub</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* {margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 
 body {
-  font-family: Arial, sans-serif;
-  color: #eaf0ff;
   background: black;
+  color: #eaf1ff;
   overflow-x: hidden;
 }
 
-/* 🌌 SPACE BACKGROUND */
-.space {
+/* 🌌 BACKGROUND */
+.bg {
   position: fixed;
-  width: 100%;
-  height: 100%;
+  width:100%;
+  height:100%;
   background: radial-gradient(circle at 20% 20%, #1b2a6b, transparent 40%),
-              radial-gradient(circle at 80% 30%, #3a1b6b, transparent 45%),
-              radial-gradient(circle at 50% 80%, #0b3b5a, transparent 50%),
-              black;
-  z-index: -2;
+              radial-gradient(circle at 80% 30%, #3b1b6b, transparent 45%),
+              radial-gradient(circle at 50% 80%, #0b3b5a, transparent 50%);
+  z-index:-2;
 }
 
-/* ✨ STARS */
 .stars {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  z-index: -1;
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:-1;
 }
 
-.stars::before,
-.stars::after {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: transparent;
+.stars::before {
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
   box-shadow:
-    100px 200px white,
-    300px 500px white,
-    600px 200px white,
-    900px 800px white,
-    1200px 300px white,
-    400px 1000px white,
-    1500px 600px white;
-  animation: moveStars 120s linear infinite;
-  opacity: 0.6;
+    100px 200px white, 300px 500px white, 600px 200px white,
+    900px 800px white, 1200px 300px white, 400px 1000px white;
+  animation:move 120s linear infinite;
+  opacity:.5;
 }
 
-.stars::after {
-  animation-duration: 180s;
-  opacity: 0.3;
-}
-
-@keyframes moveStars {
-  from { transform: translateY(0); }
-  to { transform: translateY(-1000px); }
+@keyframes move {
+  from{transform:translateY(0)}
+  to{transform:translateY(-1200px)}
 }
 
 /* HEADER */
 header {
-  text-align: center;
-  padding: 80px 20px 30px;
+  text-align:center;
+  padding:60px 20px 20px;
 }
 
 h1 {
-  font-size: 54px;
-  letter-spacing: 3px;
-  text-shadow: 0 0 20px #6ea8ff;
+  font-size:50px;
+  text-shadow:0 0 20px #6ea8ff;
 }
 
-.subtitle {
-  color: #9bbcff;
-  margin-top: 10px;
+.sub {
+  color:#9bbcff;
 }
 
-/* NAV */
-nav {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
+/* TABS */
+.tabs {
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:30px 0;
+  flex-wrap:wrap;
 }
 
-nav a {
-  text-decoration: none;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  transition: 0.3s;
+.tab {
+  padding:10px 16px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.05);
+  cursor:pointer;
+  border-radius:10px;
+  transition:.3s;
 }
 
-nav a:hover {
-  transform: scale(1.1);
-  background: rgba(100,150,255,0.2);
-  box-shadow: 0 0 20px #4a6cff;
+.tab:hover {
+  transform:scale(1.1);
+  box-shadow:0 0 20px #4a6cff;
 }
 
 /* CONTENT */
 .container {
-  max-width: 900px;
-  margin: auto;
-  padding: 40px 20px;
+  max-width:1000px;
+  margin:auto;
+  padding:20px;
 }
 
-/* GLASS CARDS */
+.panel {
+  display:none;
+  animation:fade .4s ease-in-out;
+}
+
+.panel.active {
+  display:block;
+}
+
+@keyframes fade {
+  from {opacity:0; transform:translateY(10px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* CARDS */
 .card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 20px;
-  backdrop-filter: blur(12px);
-  transition: 0.3s;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:20px;
+  border-radius:14px;
+  margin-bottom:20px;
+  backdrop-filter:blur(10px);
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 25px rgba(100,150,255,0.4);
+.card img {
+  width:100%;
+  border-radius:10px;
+  margin-top:10px;
 }
 
-.tag {
-  color: #7aa7ff;
-  font-size: 14px;
-  margin-bottom: 10px;
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:15px;
 }
 
-/* FOOTER */
+.small {
+  font-size:13px;
+  color:#8fb0ff;
+}
+
 footer {
-  text-align: center;
-  padding: 30px;
-  font-size: 12px;
-  color: #666;
+  text-align:center;
+  padding:30px;
+  color:#555;
 }
 </style>
 </head>
 
 <body>
 
-<div class="space"></div>
+<div class="bg"></div>
 <div class="stars"></div>
 
 <header>
-  <h1>🚀 Sci-Fi Universe</h1>
-  <div class="subtitle">A living galaxy of stories and worlds</div>
-
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Stories</a>
-    <a href="#">Worlds</a>
-    <a href="#">Characters</a>
-  </nav>
+  <h1>🚀 Sci-Fi Universe Hub</h1>
+  <div class="sub">Explore worlds, factions and story projects</div>
 </header>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab" onclick="show('stories')">📖 Stories</div>
+  <div class="tab" onclick="show('worlds')">🌌 Worlds</div>
+  <div class="tab" onclick="show('projects')">🧠 Projects</div>
+  <div class="tab" onclick="show('gallery')">🖼 Gallery</div>
+</div>
 
 <div class="container">
 
+<!-- STORIES -->
+<div id="stories" class="panel active">
   <div class="card">
-    <div class="tag">FEATURED STORY</div>
     <h2>Beyond the Last Orbit</h2>
-    <p>A ship drifts beyond known space where time begins to collapse and memories rewrite reality.</p>
+    <div class="small">Main storyline</div>
+    <p>A ship crosses into a region where physics begins to collapse and memories rewrite reality.</p>
   </div>
 
   <div class="card">
-    <div class="tag">UNIVERSE LOG</div>
-    <p>This universe is expanding. New planets, factions, and timelines will appear over time.</p>
+    <h2>The Silent Expansion</h2>
+    <div class="small">Side story</div>
+    <p>Colonies disappear without trace while the universe continues expanding silently.</p>
+  </div>
+</div>
+
+<!-- WORLDS -->
+<div id="worlds" class="panel">
+  <div class="grid">
+
+    <div class="card">
+      <h3>Nova Terra</h3>
+      <p class="small">Earth-like colony world</p>
+    </div>
+
+    <div class="card">
+      <h3>Abyss Station</h3>
+      <p class="small">Deep space research hub</p>
+    </div>
+
+    <div class="card">
+      <h3>Virellion Belt</h3>
+      <p class="small">Forbidden asteroid region</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" class="panel">
+  <div class="card">
+    <h2>Quantum Signal Project</h2>
+    <p class="small">Research log</p>
+    <p>Attempting to decode non-random signals coming from outside known space.</p>
   </div>
 
   <div class="card">
-    <div class="tag">NAVIGATION</div>
-    <p>Explore different worlds using the menu above. Each section will evolve into its own story arc.</p>
+    <h2>AI Archivist</h2>
+    <p class="small">System prototype</p>
+    <p>An AI that reconstructs lost civilizations from fragmented data.</p>
   </div>
+</div>
+
+<!-- GALLERY -->
+<div id="gallery" class="panel">
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa" alt="">
+      <p class="small">Deep space field</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564" alt="">
+      <p class="small">Galaxy formation</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="">
+      <p class="small">Unknown nebula</p>
+    </div>
+
+  </div>
+</div>
 
 </div>
 
 <footer>
-  Sci-Fi Universe Project • GitHub Pages
+Sci-Fi Universe Hub • GitHub Pages
 </footer>
+
+<script>
+function show(id){
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
 
 </body>
 </html>
