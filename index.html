@@ -3,67 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galaxy Guide</title>
+<title>Egyptian Gods</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 
 body{
-  background:black;
-  color:#eaf2ff;
+  background:#0a0a0a;
+  color:#f5e6c8;
   overflow-x:hidden;
 }
 
-/* 🌌 MULTI LAYER SPACE */
-.space{
+/* 🌌 SAND + GOLD BACKGROUND */
+.bg{
   position:fixed;
   width:100%;
   height:100%;
   background:
-    radial-gradient(circle at 20% 20%, #1b2a6b, transparent 40%),
-    radial-gradient(circle at 80% 30%, #3b1b6b, transparent 45%),
-    radial-gradient(circle at 50% 80%, #0b3b5a, transparent 50%),
+    radial-gradient(circle at 20% 20%, rgba(255,215,0,0.15), transparent 40%),
+    radial-gradient(circle at 80% 40%, rgba(255,180,0,0.1), transparent 50%),
     black;
-  z-index:-3;
+  z-index:-2;
 }
 
-/* ✨ STARS LAYERS */
-.stars, .stars2{
-  position:fixed;
-  width:100%;
-  height:100%;
-}
-
-.stars::before, .stars2::before{
+/* ✨ FLOATING PARTICLES */
+.stars::before{
   content:"";
-  position:absolute;
+  position:fixed;
   width:200%;
   height:200%;
-  background:transparent;
   box-shadow:
-    100px 200px white, 300px 500px white, 600px 200px white,
-    900px 800px white, 1200px 300px white, 400px 1000px white,
-    1500px 600px white, 1700px 200px white, 1900px 900px white;
+    100px 200px gold, 300px 500px #c9a23a,
+    600px 200px gold, 900px 800px #c9a23a;
+  animation:move 120s linear infinite;
+  opacity:.4;
 }
 
-.stars::before{
-  animation:move1 120s linear infinite;
-  opacity:.7;
-}
-
-.stars2::before{
-  animation:move2 200s linear infinite;
-  opacity:.3;
-}
-
-@keyframes move1{
+@keyframes move{
   from{transform:translateY(0)}
   to{transform:translateY(-1200px)}
-}
-
-@keyframes move2{
-  from{transform:translateY(0)}
-  to{transform:translateY(-2000px)}
 }
 
 /* HEADER */
@@ -74,11 +52,12 @@ header{
 
 h1{
   font-size:56px;
-  text-shadow:0 0 30px #6ea8ff;
+  color:gold;
+  text-shadow:0 0 25px rgba(255,215,0,0.7);
 }
 
 .subtitle{
-  color:#9bbcff;
+  color:#d4b76a;
   margin-top:10px;
 }
 
@@ -95,14 +74,14 @@ nav a{
   cursor:pointer;
   padding:10px 18px;
   border-radius:12px;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.1);
+  border:1px solid rgba(255,215,0,0.3);
+  color:gold;
   transition:.3s;
 }
 
 nav a:hover{
-  transform:scale(1.1);
-  box-shadow:0 0 25px #4a6cff;
+  background:rgba(255,215,0,0.2);
+  box-shadow:0 0 20px gold;
 }
 
 /* CONTAINER */
@@ -118,7 +97,8 @@ nav a:hover{
 
 /* CARDS */
 .card{
-  background:rgba(255,255,255,0.05);
+  background:rgba(255,215,0,0.05);
+  border:1px solid rgba(255,215,0,0.2);
   border-radius:16px;
   padding:20px;
   margin-bottom:20px;
@@ -127,32 +107,27 @@ nav a:hover{
 }
 
 .card:hover{
-  transform:translateY(-8px) scale(1.02);
-  box-shadow:0 0 40px rgba(120,160,255,0.6);
-}
-
-/* IMAGE GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:15px;
+  transform:translateY(-8px);
+  box-shadow:0 0 30px rgba(255,215,0,0.5);
 }
 
 .card img{
   width:100%;
   border-radius:12px;
   margin-top:10px;
-  transition:.4s;
 }
 
-.card img:hover{
-  transform:scale(1.05);
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:15px;
 }
 
 /* TAG */
 .tag{
   font-size:12px;
-  color:#ffdf7a;
+  color:#e0c070;
   margin-bottom:8px;
 }
 
@@ -160,25 +135,24 @@ nav a:hover{
 footer{
   text-align:center;
   padding:30px;
-  color:#555;
+  color:#777;
 }
 </style>
 </head>
 
 <body>
 
-<div class="space"></div>
+<div class="bg"></div>
 <div class="stars"></div>
-<div class="stars2"></div>
 
 <header>
-  <h1>🌌 Galaxy Guide</h1>
-  <div class="subtitle">DON'T PANIC — explore everything</div>
+  <h1>𓂀 Egyptian Gods</h1>
+  <div class="subtitle">Realm of the Ancient Divine</div>
 
   <nav>
     <a onclick="show('home')">Home</a>
-    <a onclick="show('worlds')">Worlds</a>
-    <a onclick="show('projects')">Projects</a>
+    <a onclick="show('gods')">Gods</a>
+    <a onclick="show('afterlife')">Afterlife</a>
     <a onclick="show('gallery')">Gallery</a>
   </nav>
 </header>
@@ -188,69 +162,68 @@ footer{
 <!-- HOME -->
 <div id="home" class="panel active">
   <div class="card">
-    <div class="tag">ENTRY #42</div>
-    <h2>Welcome traveler</h2>
-    <p>The galaxy is big. Really big. You just won't believe how vastly, hugely, mind-bogglingly big it is.</p>
-    <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
+    <div class="tag">WELCOME</div>
+    <h2>Enter the realm of gods</h2>
+    <p>Step into the ancient world where gods rule life, death, and eternity.</p>
+    <img src="https://images.unsplash.com/photo-1564769625905-50e93615e769">
   </div>
 </div>
 
-<!-- WORLDS -->
-<div id="worlds" class="panel">
+<!-- GODS -->
+<div id="gods" class="panel">
   <div class="grid">
 
     <div class="card">
-      <h3>Nova Terra</h3>
-      <p class="tag">Mostly harmless</p>
-      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa">
+      <h3>Anubis</h3>
+      <p class="tag">God of the Dead</p>
+      <img src="https://images.unsplash.com/photo-1601582589907-f92af5ed9db8">
+      <p>Guardian of tombs and guide of souls to the afterlife.</p>
     </div>
 
     <div class="card">
-      <h3>Void-9</h3>
-      <p class="tag">DO NOT APPROACH</p>
-      <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564">
+      <h3>Ra</h3>
+      <p class="tag">Sun God</p>
+      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+      <p>Creator and ruler of the sun, traveling across the sky each day.</p>
     </div>
 
     <div class="card">
-      <h3>Gronth IX</h3>
-      <p class="tag">Weird gravity</p>
-      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+      <h3>Osiris</h3>
+      <p class="tag">God of Resurrection</p>
+      <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da">
+      <p>Judge of the dead and lord of the underworld.</p>
     </div>
 
   </div>
 </div>
 
-<!-- PROJECTS -->
-<div id="projects" class="panel">
+<!-- AFTERLIFE -->
+<div id="afterlife" class="panel">
   <div class="card">
-    <h2>Infinite Probability Drive</h2>
-    <p class="tag">Experimental</p>
-    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca">
+    <h2>The Weighing of the Heart</h2>
+    <p>Your soul is judged by comparing your heart to the feather of Ma'at.</p>
+    <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b">
   </div>
 
   <div class="card">
-    <h2>Reality Engine</h2>
-    <p class="tag">Unstable</p>
-    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+    <h2>Duat</h2>
+    <p>The mysterious underworld where souls journey after death.</p>
   </div>
 </div>
 
 <!-- GALLERY -->
 <div id="gallery" class="panel">
   <div class="grid">
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa"></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa"></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564"></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"></div>
-
+    <div class="card"><img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f0e"></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1518684079-3c830dcef090"></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1505739773440-2db1f1c3a2c3"></div>
   </div>
 </div>
 
 </div>
 
 <footer>
-DON'T PANIC • Galaxy Guide
+Ancient Egypt • Realm of Gods
 </footer>
 
 <script>
