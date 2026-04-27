@@ -1,99 +1,513 @@
-<section class="section" id="tiers">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">Reward tiers</p>
-        <h2>Choose your level of support</h2>
+<!DOCTYPE html>
+<html lang="hu" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ENZMINGER & WOLF â€” A LONG DAY Kickstarter elÅ‘kÃ©szÃ­tÅ‘ oldal." />
+  <title>ENZMINGER & WOLF â€” A LONG DAY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(3rem, 1.4rem + 4vw, 5.5rem);
+      --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem;
+      --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem;
+      --color-bg: #f6f1ea; --color-surface: rgba(255,255,255,0.76); --color-surface-2: rgba(245,239,231,0.86);
+      --color-border: rgba(67,46,34,0.14); --color-text: #231b17; --color-text-muted: #66544a;
+      --color-primary: #bb8458; --color-primary-hover: #9b6a44; --color-panel: rgba(24,17,15,0.8);
+      --shadow-md: 0 16px 48px rgba(40,26,20,0.12); --shadow-lg: 0 26px 90px rgba(40,26,20,0.18);
+      --radius-md: 0.75rem; --radius-lg: 1rem; --radius-xl: 1.5rem; --radius-full: 9999px;
+      --font-display: 'Cormorant Garamond', Georgia, serif; --font-body: 'Inter', Arial, sans-serif; --content: 1180px;
+    }
+    [data-theme="dark"] {
+      --color-bg: #08090d; --color-surface: rgba(16,19,28,0.72); --color-surface-2: rgba(24,28,41,0.92);
+      --color-border: rgba(219,195,161,0.16); --color-text: #f6efe6; --color-text-muted: #c9b7a4;
+      --color-primary: #d6a06b; --color-primary-hover: #e5b583; --color-panel: rgba(9,12,18,0.78);
+      --shadow-md: 0 20px 56px rgba(0,0,0,0.38); --shadow-lg: 0 30px 110px rgba(0,0,0,0.55);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-text-size-adjust:none;text-size-adjust:none;scroll-behavior:smooth}
+    body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);line-height:1.72;color:var(--color-text);background:radial-gradient(circle at 20% 0%, rgba(98,125,220,0.18), transparent 22%),radial-gradient(circle at 80% 10%, rgba(214,160,107,0.14), transparent 24%),linear-gradient(180deg, #05070d 0%, #0b1120 38%, var(--color-bg) 100%);background-color:var(--color-bg)}
+    img,svg{display:block;max-width:100%;height:auto}
+    a{text-decoration:none;color:inherit}
+    button,input{font:inherit}
+    button{background:none;border:none;cursor:pointer;color:inherit}
+    .wrap{width:min(calc(100% - 2rem), var(--content));margin-inline:auto}
+    .topbar{position:sticky;top:0;z-index:40;background:rgba(5,7,13,0.7);backdrop-filter:blur(16px);border-bottom:1px solid var(--color-border)}
+    .topbar-inner{display:flex;justify-content:space-between;align-items:center;gap:var(--space-4);padding:var(--space-4) 0}
+    .brand{display:flex;align-items:center;gap:var(--space-3)}
+    .brand-mark{width:2.5rem;height:2.5rem;color:var(--color-primary)}
+    .brand-copy strong{display:block;font-family:var(--font-display);font-size:var(--text-lg);letter-spacing:0.06em}
+    .brand-copy span{display:block;font-size:var(--text-xs);letter-spacing:0.2em;text-transform:uppercase;color:var(--color-text-muted)}
+    .nav{display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center}
+    .nav a,.theme-toggle,.cta-mini{min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 var(--space-4);border:1px solid var(--color-border);border-radius:var(--radius-full)}
+    .cta-mini{background:var(--color-primary);color:#140f0d;border-color:transparent;font-weight:700}
+    .hero{padding:0 0 var(--space-16)}
+    .hero-stage{min-height:88vh;display:grid;align-items:end;position:relative;overflow:hidden;border-radius:0 0 2rem 2rem;background:linear-gradient(180deg, rgba(3,5,10,0.2) 0%, rgba(3,5,10,0.58) 45%, rgba(3,5,10,0.92) 100%),url('./assets/hero-spaceship.jpeg') center 28%/cover no-repeat;box-shadow:var(--shadow-lg)}
+    .hero-stage::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 72% 20%, rgba(164,200,255,0.18), transparent 16%), radial-gradient(circle at 24% 16%, rgba(214,160,107,0.16), transparent 20%);pointer-events:none}
+    .hero-content{position:relative;z-index:1;padding:clamp(6rem,10vw,9rem) 0 var(--space-12)}
+    .eyebrow{font-size:var(--text-sm);letter-spacing:0.22em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-4)}
+    h1,h2,h3{font-family:var(--font-display);line-height:1.04}
+    h1{font-size:var(--text-3xl);max-width:8ch}
+    h2{font-size:var(--text-2xl)}
+    h3{font-size:var(--text-xl)}
+    .lead{max-width:58ch;margin-top:var(--space-4);color:#efe2d3}
+    .sublead{max-width:36ch;margin-top:var(--space-4);font-size:var(--text-lg);color:#d7c6b3}
+    .hero-actions{display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--space-6)}
+    .button-primary,.button-secondary{min-height:48px;display:inline-flex;align-items:center;justify-content:center;padding:0 var(--space-5);border-radius:var(--radius-full)}
+    .button-primary{background:var(--color-primary);color:#140f0d;font-weight:800}
+    .button-secondary{border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.03)}
+    .glass-row{margin-top:calc(-1 * var(--space-8));position:relative;z-index:3}
+    .glass-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:var(--space-5)}
+    .panel,.card,.feature,.signup-box,.faq-item,.excerpt-box{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);box-shadow:var(--shadow-md)}
+    .panel,.card,.feature,.signup-box,.faq-item,.excerpt-box{padding:var(--space-5)}
+    .meta-line,.card p,.feature p,.faq-item p,.signup-box p{color:var(--color-text-muted)}
+    .section{padding:var(--space-12) 0}
+    .section-head{display:grid;grid-template-columns:0.85fr 1.15fr;gap:var(--space-6);align-items:end;margin-bottom:var(--space-6)}
+    .section-head p{color:var(--color-text-muted);max-width:60ch}
+    .book-layout{display:grid;grid-template-columns:0.78fr 1.22fr;gap:var(--space-6);align-items:start}
+    .cover-card img{width:100%;border-radius:calc(var(--radius-xl) - var(--space-5));box-shadow:var(--shadow-md)}
+    .story-grid,.preview-grid,.authors-grid,.campaign-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
+    .preview-card img,.cover-card img{aspect-ratio:4/5;object-fit:cover}
+    .preview-card img{width:100%;border-radius:calc(var(--radius-xl) - var(--space-5));margin-bottom:var(--space-4)}
+    .campaign-grid .feature,.authors-grid .feature,.story-grid .feature{min-height:100%}
+    .prose{display:grid;gap:var(--space-4)}
+    .excerpt-box blockquote{font-size:var(--text-lg);font-family:var(--font-display);color:var(--color-text);margin-bottom:var(--space-4)}
+    .excerpt-box .excerpt{display:grid;gap:var(--space-4);white-space:pre-line;color:var(--color-text)}
+    .signup-layout{display:grid;grid-template-columns:1.08fr 0.92fr;gap:var(--space-5)}
+
+    .tiers-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-4)}
+    .tier-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-4)}
+    .tier-card.featured{border-color:rgba(214,160,107,0.6);transform:translateY(-6px)}
+    .tier-price{font-size:var(--text-2xl);font-family:var(--font-display);color:var(--color-primary)}
+    .tier-note{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .tier-card ul{list-style:none;display:grid;gap:var(--space-2)}
+    .tier-card li{padding-left:1rem;position:relative;color:var(--color-text-muted)}
+    .tier-card li::before{content:'â€¢';position:absolute;left:0;color:var(--color-primary)}
+    .tier-badge{align-self:flex-start;padding:0.35rem 0.75rem;border-radius:var(--radius-full);background:rgba(214,160,107,0.14);color:var(--color-primary);font-size:var(--text-xs);letter-spacing:0.14em;text-transform:uppercase}
+    label{display:block;font-size:var(--text-sm);font-weight:600;margin-bottom:var(--space-3)}
+    .form-row{display:flex;gap:var(--space-3);flex-wrap:wrap}
+    input{flex:1 1 260px;min-height:50px;padding:0 var(--space-4);border-radius:var(--radius-full);border:1px solid var(--color-border);background:var(--color-surface-2);color:var(--color-text)}
+    .signup-box button{min-height:50px;padding:0 var(--space-5);border-radius:var(--radius-full);background:var(--color-primary);color:#140f0d;font-weight:800;border:none}
+    .mini-stack{display:grid;gap:var(--space-3)}
+    .mini-stack div{padding:var(--space-4);border-radius:var(--radius-lg);background:var(--color-surface-2);border:1px solid var(--color-border)}
+    .faq{display:grid;gap:var(--space-4)}
+    ul.clean{list-style:none;display:grid;gap:var(--space-3)}
+    ul.clean li{padding-left:1.2rem;position:relative}
+    ul.clean li::before{content:'â€¢';position:absolute;left:0;color:var(--color-primary)}
+    footer{padding:var(--space-12) 0 var(--space-16);color:var(--color-text-muted);font-size:var(--text-sm)}
+    @media (max-width: 980px){.glass-grid,.book-layout,.story-grid,.preview-grid,.authors-grid,.campaign-grid,.signup-layout,.section-head,.tiers-grid{grid-template-columns:1fr}.topbar-inner{flex-direction:column;align-items:flex-start}.hero-stage{min-height:78vh;background-position:center center}}
+    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M10 50L22 14L32 34L42 14L54 50" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 50H46" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+          <path d="M24 28L18 20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <path d="M40 28L46 20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="brand-copy">
+          <strong>ENZMINGER &amp; WOLF</strong>
+          <span>A LONG DAY</span>
+        </div>
       </div>
-      <p>The first release of A Long Day will be digital only. A printed paperback or hardcover edition will only happen if the campaign raises enough to cover production, printing, and shipping costs [page:1][web:103].</p>
+      <nav class="nav" aria-label="FÅ‘ navigÃ¡ciÃ³">
+        <a href="#book">KÃ¶nyv</a>
+        <a href="#excerpt">RÃ©szlet</a>
+        <a href="#design">Design</a>
+        <a href="#support">TÃ¡mogatÃ¡s</a>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="TÃ©ma vÃ¡ltÃ¡sa">â˜¼</button>
+        <a href="#signup" class="cta-mini">Ã‰rtesÃ­tÃ©st kÃ©rek</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="tiers-grid">
-      <article class="tier-card">
-        <span class="tier-badge">Entry tier</span>
-        <h3>Observer</h3>
-        <div class="tier-price">€1</div>
-        <p class="tier-note">A simple way to follow the project early and show support.</p>
-        <ul>
-          <li>Backer-only campaign updates</li>
-          <li>Launch news access</li>
-          <li>Thank-you mention in updates</li>
-        </ul>
-      </article>
-
-      <article class="tier-card">
-        <span class="tier-badge">Support tier</span>
-        <h3>Super Observer</h3>
-        <div class="tier-price">€5</div>
-        <p class="tier-note">A louder show of support for readers who want to stay close to the project.</p>
-        <ul>
-          <li>All Observer rewards</li>
-          <li>Early project news</li>
-          <li>Backer-only progress notes</li>
-        </ul>
-      </article>
-
-      <article class="tier-card featured">
-        <span class="tier-badge">Best value</span>
-        <h3>Yinep Edition</h3>
-        <div class="tier-price">€28</div>
-        <p class="tier-note">The main digital reading tier for the first release of the novella.</p>
-        <ul>
-          <li>DRM-free digital edition of A Long Day</li>
-          <li>Signed digital bookplate PDF</li>
-          <li>Behind-the-scenes notes or development PDF</li>
-          <li>All previous rewards</li>
-        </ul>
-      </article>
-
-      <article class="tier-card">
-        <span class="tier-badge">Collector tier</span>
-        <h3>Long Day Collector</h3>
-        <div class="tier-price">€45</div>
-        <p class="tier-note">For readers who want a richer backer package.</p>
-        <ul>
-          <li>Everything in Yinep Edition</li>
-          <li>Limited digital poster set</li>
-          <li>Name on the supporter page</li>
-          <li>Priority access to future add-ons</li>
-        </ul>
-      </article>
-
-      <article class="tier-card">
-        <span class="tier-badge">Premium tier</span>
-        <h3>Founders Signal</h3>
-        <div class="tier-price">€85</div>
-        <p class="tier-note">A premium support tier for early backers and superfans.</p>
-        <ul>
-          <li>Everything in Long Day Collector</li>
-          <li>Special thanks credit in the book</li>
-          <li>Private supporter Q&amp;A update</li>
-          <li>Limited availability</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="physical-edition">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">Physical edition</p>
-        <h2>Paperbacks and hardcovers</h2>
+  <main>
+    <section class="hero">
+      <div class="hero-stage">
+        <div class="wrap hero-content">
+          <p class="eyebrow">Kickstarter pre-launch website</p>
+          <h1>ENZMINGER &amp; WOLF<br>A LONG DAY</h1>
+          <p class="sublead">written under the names Enzminger Anpu &amp; Daemon Wolf</p>
+          <p class="lead">Publishing A Long Day â€” A Raw Science Fiction Novella. An early wakeâ€‘up from cryo. A dying Earth. And a suit you put onâ€¦ or you donâ€™t survive.</p>
+          <div class="hero-actions">
+            <a class="button-primary" href="#signup">Support the Project</a>
+            <a class="button-secondary" href="#excerpt">Read the excerpt</a>
+          </div>
+        </div>
       </div>
-      <p>The campaign will start with a digital-first release. Paperback and hardcover editions will only be unlocked if funding covers production, printing, and shipping in a sustainable way [web:103][page:1].</p>
-    </div>
+      <div class="wrap glass-row">
+        <div class="glass-grid">
+          <article class="panel">
+            <p class="eyebrow">Author</p>
+            <p class="meta-line">Author based in Budapest, Hungary.</p>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">Project tone</p>
+            <p class="meta-line">Az eredeti megfogalmazÃ¡st megtartottam, Ã©s csak a durvÃ¡bb szavakat finomÃ­tottam enyhÃ©n, ahogy kÃ©rted [cite:1].</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <div class="feature">
-      <h3>Digital first</h3>
-      <p>The first edition of A Long Day will be released digitally. This keeps the campaign realistic and focused while the book is being finished, edited, and prepared for release.</p>
 
-      <h3 style="margin-top:1.5rem;">Printed editions if funding allows</h3>
-      <p>If the campaign raises enough to cover manufacturing and fulfillment, we will offer a physical edition. The exact format and price will depend on the final costs for paperback and hardcover production, packaging, and shipping.</p>
+    <section class="section" id="visual-map">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Design map</p>
+            <h2>How the images fit together</h2>
+          </div>
+          <p>The project page should combine the spaceship hero, the cover, and the other design references into one continuous campaign story, not separate pieces [file:70][file:71][file:72][file:73][file:74][file:114].</p>
+        </div>
+        <div class="preview-grid">
+          <article class="card preview-card"><img src="./assets/hero-spaceship.jpeg" alt="Main spaceship hero background" loading="lazy" width="736" height="920"><h3>Main background</h3><p class="meta-line">Use the spaceship image as the main background for the opening hero area [file:71].</p></article>
+          <article class="card preview-card"><img src="./assets/cover.jpeg" alt="Book cover" loading="lazy" width="736" height="920"><h3>Book cover</h3><p class="meta-line">Keep the cover visible in its own strong block so the project feels anchored [file:70].</p></article>
+          <article class="card preview-card"><img src="./assets/preview-nebula.jpeg" alt="Cosmic teaser visual" loading="lazy" width="736" height="920"><h3>Teaser visuals</h3><p class="meta-line">The other images work best as teaser / preview design references inside the same page [file:72][file:73][file:74][file:114].</p></article>
+        </div>
+      </div>
+    </section>
 
-      <h3 style="margin-top:1.5rem;">Why this matters</h3>
-      <p>This approach keeps expectations clear: backers know the book will definitely exist in digital form, and any printed version will be a funded stretch beyond that core release.</p>
-    </div>
-  </div>
-</section>
+    <section class="section" id="book">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">The Project</p>
+            <h2>A Long Day</h2>
+          </div>
+          <p>A Kickstarter publishing guide recommends leading with a clear project description and purpose, so the page now keeps your original pitch visible near the top while the visuals support it rather than replacing it [web:75][web:77].</p>
+        </div>
+        <div class="book-layout">
+          <article class="card cover-card">
+            <img src="./assets/cover.jpeg" alt="ENZMINGER & WOLF A LONG DAY borÃ­tÃ³" loading="lazy" width="768" height="1024">
+          </article>
+          <article class="card prose">
+            <p>A Long Day is a science fiction novella set in a future where Earth is no longer running out of time â€” it has already run out of water.</p>
+            <p>Survival is no longer about comfort, politics, or convenience. Itâ€™s about systems that workâ€¦ and the ones that donâ€™t.</p>
+            <p>This campaign funds the first English-language independent release of the novella, including professional editing, cover design, formatting, and digital distribution.</p>
+            <p>Below is a short excerpt from Chapter I.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="excerpt">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Story Excerpt</p>
+            <h2>Chapter I: Early Wake-Up from Cryo</h2>
+          </div>
+          <p>Kickstarter story pages usually work best when a sample is clearly separated and easy to skim, so the excerpt is now presented in its own dedicated reading block [web:79][web:84].</p>
+        </div>
+        <article class="excerpt-box">
+          <blockquote>â€œSome stories donâ€™t end. They stay with you â€” and change how you see.â€</blockquote>
+          <div class="excerpt">I wake up too early from cryo.
+
+My head is buzzing, my vision smeared like a badly filtered hologram, my mouth so dry I feel like a thousand-year-old mummy that forgot how saliva works. Iâ€™d spit â€” if I had anything to spit with. Right now Iâ€™m too busy trying to convince my numb legs that gravity is, in fact, still mandatory.
+
+I hate cryo. Worth repeating.
+
+Something finally kickstarts inside me. I swallow the post-cryo mucus avalanche and force the nausea back down. A heroic cough follows â€” thick, ugly, triumphant. Saliva production online. Sweet relief.
+
+â€œCold start,â€ I mutter, and even manage a smile.
+
+I lean into my legs, start shuffling forward â€” then the hatred boils over. Pure instinct. I turn back toward the cryo-sarcophagus, roll the nasty mess into a proper payload, and launch it.
+
+Direct hit.
+
+I growl something along the lines of mother-loving freezing cryo and laugh at myself while stumbling toward the locker room. Yes. I still hate cryo.
+
+A long, hot shower drags me back among the living. The preservation gel washes off â€” a nutrient-packed, oxygen-rich miracle substance designed to make sure you donâ€™t turn into an actual mummy mid-voyage.
+
+Would be funny though.
+
+Imagine the arrival team opening the chamber and playing archaeologist.
+
+â€œFascinating specimen, colleague. Estimate the age?â€
+â€œNo idea. I just woke up from this frozen hellhole.â€
+
+I laugh out loud. Alone. In the shower. Completely sane behavior.
+
+Thatâ€™s when my Yinep watch vibrates: Drink. Eat. Capsules. Now.
+
+I forgot. Post-cryo pills skipped. Collapse imminent within the hour.
+
+I step out, still wobbling slightly, and pull on my suit.
+
+Yes. That suit.
+
+Turns out humanity eventually nailed it â€” fully functional, real-world survival gear, something straight out of Frank Herbertâ€™s fever dreams. We built our own version.
+
+We called it the Yinep Suit.
+
+No more excuses.
+Put on our new Yinep Suit.
+Buckle up.
+Be quiet.
+Nobody dries out here and lives.
+
+It sold like fire in vacuum.
+
+Enough money to buy my own starship and get my family as far away from Earth as possible. We needed space. Earth wasâ€¦ rotting. You know how it is.
+
+I hurry back to the cryo station as my watch practically screams at me. The compartment glows like sunrise. Water, nutrients, two capsules.
+
+One for the body.
+One for the soul.
+
+Body first. Survival instinct is strong. I swallow, drink deep, then take the other capsule.
+
+â€œGood job, Kiri-Cryo,â€ I say softly, patting the machine I recently vandalized with biological warfare. I wipe it clean.
+
+You keep me alive on long journeys. Youâ€™re justâ€¦ terribly cold.
+
+I scan the chamber. Rows of cryo units â€” family, friendsâ€¦ pets.
+
+Everyone asleep.
+Me awake.
+
+Cryo insomnia? Or just bad luck.
+
+Long day ahead.
+
+Then the cryo unit next to mine hums.
+
+Wait.
+
+Is thatâ€”?
+
+â€œRufus?â€
+
+The AI dog activates.
+
+â€œWoof!â€
+Then: â€œIdiot.â€
+
+I sigh.
+â€œGood morning to you too.â€
+
+Maybe machines really do have souls.
+And if they do â€” this one is definitely enjoying my suffering.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="design">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Design elÅ‘zetesek</p>
+            <h2>Visual tone and campaign direction</h2>
+          </div>
+          <p>A megadott kÃ©pek tovÃ¡bbra is kÃ¼lÃ¶n preview blokkokban maradtak, Ã­gy az oldal egyszerre mutatja a kÃ¶nyv hangulatÃ¡t Ã©s a kampÃ¡ny lehetsÃ©ges vizuÃ¡lis vilÃ¡gÃ¡t [file:70][file:72][file:73][file:74].</p>
+        </div>
+        <div class="preview-grid">
+          <article class="card preview-card">
+            <img src="./assets/preview-nebula.jpeg" alt="Å°rhajÃ³ szÃ­nes kÃ¶dben" loading="lazy" width="736" height="920">
+            <h3>Kozmikus vilÃ¡gÃ©pÃ­tÃ©s</h3>
+            <p class="meta-line">Ez a kÃ©p remek teaser vizuÃ¡l a vilÃ¡gÃ©pÃ­tÃ©shez vagy egy galÃ©ria-blokkhoz [file:72].</p>
+          </article>
+          <article class="card preview-card">
+            <img src="./assets/preview-green.jpeg" alt="A LONG DAY alternatÃ­v zÃ¶ld arculati poszter" loading="lazy" width="736" height="920">
+            <h3>AlternatÃ­v kampÃ¡nyposzter</h3>
+            <p class="meta-line">Ez hasznÃ¡lhatÃ³ reward mockuphoz vagy kÃ¶zÃ¶ssÃ©gi elÅ‘zetes kreatÃ­vnak [file:73].</p>
+          </article>
+          <article class="card preview-card">
+            <img src="./assets/preview-anubis.jpeg" alt="Anubis-fej Ã©s sÃ¶tÃ©t sci-fi vÃ¡roskÃ©p" loading="lazy" width="736" height="920">
+            <h3>MitolÃ³giai irÃ¡ny</h3>
+            <p class="meta-line">Ez a vizuÃ¡l jÃ³l kÃ©pviseli a mythos-vonalat Ã©s az arculati tÃ³nust [file:74].</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="support">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">About the Author</p>
+            <h2>Independent science fiction from Budapest</h2>
+          </div>
+          <p>Kickstarterâ€™s creator guidance emphasizes clearly identifying who is behind the project, so your author section remains explicit and personal here [web:78].</p>
+        </div>
+        <div class="story-grid">
+          <article class="feature">
+            <h3>About the Author</h3>
+            <p>Iâ€™m an independent writer based in Budapest, writing science fiction focused on systems under pressure â€” ecological, technological, and human.</p>
+            <p>A Long Day grew out of a simple question: What happens when humanity doesnâ€™t collapse all at once â€” but keeps going anyway?</p>
+            <p>Crowdfunding allows this story to be published without sanding down its voice.</p>
+          </article>
+          <article class="feature">
+            <h3>About the Artwork &amp; Visuals</h3>
+            <p>The initial visuals shown on this campaign page â€” including concept images and the draft cover â€” are AI-generated placeholders.</p>
+            <p>They exist solely to communicate the tone and atmosphere of the story at an early stage. They are not the final artworks.</p>
+            <p>Once the campaign is successfully funded and resources allow, human artists will be commissioned to create the final cover and illustrations.</p>
+          </article>
+          <article class="feature">
+            <h3>Human artists first</h3>
+            <p>We are especially interested in working with young and emerging artists â€” talented creators who are hungry for real opportunities and professional collaboration.</p>
+            <p>AI tools are becoming widespread, but this project aims to support human creativity, not replace it.</p>
+            <p>Backer support directly enables this transition.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="tiers">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Reward tiers</p>
+            <h2>Choose your level of support</h2>
+          </div>
+          <p>Kickstarter reward guidance consistently favors a small number of clear tiers, usually around 3â€“5 core options, so this version uses five easy-to-scan packages with a visible middle featured tier [web:31][web:94][web:95].</p>
+        </div>
+        <div class="tiers-grid">
+          <article class="tier-card">
+            <span class="tier-badge">Digital entry</span>
+            <h3>Observer</h3>
+            <div class="tier-price">â‚¬7</div>
+            <p class="tier-note">Low-friction support tier for readers who want in early.</p>
+            <ul>
+              <li>Thank-you update</li>
+              <li>Campaign news access</li>
+              <li>Digital wallpaper pack</li>
+            </ul>
+          </article>
+          <article class="tier-card">
+            <span class="tier-badge">Reader tier</span>
+            <h3>Survivor</h3>
+            <div class="tier-price">â‚¬15</div>
+            <p class="tier-note">Simple digital edition tier for the core story.</p>
+            <ul>
+              <li>DRM-free ebook edition</li>
+              <li>All previous rewards</li>
+              <li>Backer-only update posts</li>
+            </ul>
+          </article>
+          <article class="tier-card featured">
+            <span class="tier-badge">Best value</span>
+            <h3>Yinep Edition</h3>
+            <div class="tier-price">â‚¬28</div>
+            <p class="tier-note">Your hero tier: digital book plus a stronger collector feel.</p>
+            <ul>
+              <li>DRM-free ebook edition</li>
+              <li>Signed digital bookplate PDF</li>
+              <li>Behind-the-scenes notes or devlog PDF</li>
+              <li>All previous rewards</li>
+            </ul>
+          </article>
+          <article class="tier-card">
+            <span class="tier-badge">Collector</span>
+            <h3>Long Day Collector</h3>
+            <div class="tier-price">â‚¬45</div>
+            <p class="tier-note">For readers who want the richer campaign package.</p>
+            <ul>
+              <li>Everything in Yinep Edition</li>
+              <li>Limited digital poster set</li>
+              <li>Name on supporter page</li>
+              <li>Priority access to future add-ons</li>
+            </ul>
+          </article>
+          <article class="tier-card">
+            <span class="tier-badge">Premium</span>
+            <h3>Founders Signal</h3>
+            <div class="tier-price">â‚¬85</div>
+            <p class="tier-note">Small premium tier for close supporters and superfans.</p>
+            <ul>
+              <li>Everything in Long Day Collector</li>
+              <li>Special thanks credit in the book</li>
+              <li>Private supporter Q&amp;A update</li>
+              <li>Limited availability recommended</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="reward-note">
+      <div class="wrap">
+        <div class="feature">
+          <p class="eyebrow">Copy-paste note</p>
+          <h2>Use the block below directly in GitHub</h2>
+          <p>This reward section is built to be copied as one piece into the repository and kept in the same page with the images and the rest of the campaign layout.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="signup">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">What Your Support Makes Possible</p>
+            <h2>Directly funding the release</h2>
+          </div>
+          <p>Strong Kickstarter pages explain clearly what the money enables, so your support section is now broken into visible outcomes and a direct call to action [web:31][web:77].</p>
+        </div>
+        <div class="signup-layout">
+          <article class="signup-box">
+            <ul class="clean">
+              <li>Professional English-language editing</li>
+              <li>Cover design and interior layout</li>
+              <li>Formatting for digital release</li>
+              <li>Independent worldwide distribution</li>
+            </ul>
+            <p style="margin-top:1rem;">Every pledge directly supports the completion and release of the book.</p>
+            <p style="margin-top:1rem;">Because science fiction has always lived here first â€” with readers who value ideas, tone, and stories that donâ€™t apologize.</p>
+            <p style="margin-top:1rem;">If you like sci-fi thatâ€™s raw, funny, and uncomfortably plausible â€” this project is for you.</p>
+          </article>
+          <aside class="signup-box">
+            <p class="eyebrow">Support the Project</p>
+            <p>Back the campaign. Share it with fellow sci-fi readers. Help bring A Long Day to life.</p>
+            <label for="email">Email cÃ­m</label>
+            <form onsubmit="event.preventDefault();document.getElementById('signup-note').textContent='KÃ¶sd Ã¶ssze Formspree-vel, MailerLite-tal vagy mÃ¡s Å±rlapkezelÅ‘vel indulÃ¡s elÅ‘tt.';">
+              <div class="form-row">
+                <input id="email" type="email" placeholder="email@pelda.hu" aria-describedby="signup-note">
+                <button type="submit">Notify me</button>
+              </div>
+            </form>
+            <p id="signup-note" class="meta-line" style="margin-top:1rem;">Thank you for supporting independent science fiction.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">ENZMINGER &amp; WOLF â€” A LONG DAY â€¢ Az eredeti kÃ¶nyvszÃ¶veg beÃ©pÃ­tve, enyhÃ©n finomÃ­tott durvÃ¡bb kifejezÃ©sekkel Ã©s a korÃ¡bbi kÃ©pes designnal [file:70][file:71][file:72][file:73][file:74][cite:1].</div>
+  </footer>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+      const sync = () => {
+        toggle.textContent = theme === 'dark' ? 'â˜¼' : 'â˜¾';
+        toggle.setAttribute('aria-label', 'VÃ¡ltÃ¡s ' + (theme === 'dark' ? 'vilÃ¡gos' : 'sÃ¶tÃ©t') + ' mÃ³dra');
+      };
+      sync();
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        sync();
+      });
+    })();
+  </script>
+</body>
+</html>
