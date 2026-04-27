@@ -1,243 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Egyptian Gods</title>
+<section class="section" id="tiers">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Reward tiers</p>
+        <h2>Choose your level of support</h2>
+      </div>
+      <p>The first release of A Long Day will be digital only. A printed paperback or hardcover edition will only happen if the campaign raises enough to cover production, printing, and shipping costs [page:1][web:103].</p>
+    </div>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+    <div class="tiers-grid">
+      <article class="tier-card">
+        <span class="tier-badge">Entry tier</span>
+        <h3>Observer</h3>
+        <div class="tier-price">€1</div>
+        <p class="tier-note">A simple way to follow the project early and show support.</p>
+        <ul>
+          <li>Backer-only campaign updates</li>
+          <li>Launch news access</li>
+          <li>Thank-you mention in updates</li>
+        </ul>
+      </article>
 
-body{
-  background:#0a0a0a;
-  color:#f5e6c8;
-}
+      <article class="tier-card">
+        <span class="tier-badge">Support tier</span>
+        <h3>Super Observer</h3>
+        <div class="tier-price">€5</div>
+        <p class="tier-note">A louder show of support for readers who want to stay close to the project.</p>
+        <ul>
+          <li>All Observer rewards</li>
+          <li>Early project news</li>
+          <li>Backer-only progress notes</li>
+        </ul>
+      </article>
 
-/* háttér */
-.bg{
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255,215,0,0.15), transparent 40%),
-    radial-gradient(circle at 80% 40%, rgba(255,180,0,0.1), transparent 50%),
-    black;
-  z-index:-1;
-}
+      <article class="tier-card featured">
+        <span class="tier-badge">Best value</span>
+        <h3>Yinep Edition</h3>
+        <div class="tier-price">€28</div>
+        <p class="tier-note">The main digital reading tier for the first release of the novella.</p>
+        <ul>
+          <li>DRM-free digital edition of A Long Day</li>
+          <li>Signed digital bookplate PDF</li>
+          <li>Behind-the-scenes notes or development PDF</li>
+          <li>All previous rewards</li>
+        </ul>
+      </article>
 
-/* header */
-header{
-  text-align:center;
-  padding:40px 15px 10px;
-}
+      <article class="tier-card">
+        <span class="tier-badge">Collector tier</span>
+        <h3>Long Day Collector</h3>
+        <div class="tier-price">€45</div>
+        <p class="tier-note">For readers who want a richer backer package.</p>
+        <ul>
+          <li>Everything in Yinep Edition</li>
+          <li>Limited digital poster set</li>
+          <li>Name on the supporter page</li>
+          <li>Priority access to future add-ons</li>
+        </ul>
+      </article>
 
-h1{
-  font-size:36px;
-  color:gold;
-}
-
-/* nav */
-nav{
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:15px;
-}
-
-nav a{
-  cursor:pointer;
-  padding:8px 14px;
-  border-radius:10px;
-  border:1px solid rgba(255,215,0,0.3);
-  color:gold;
-  font-size:14px;
-}
-
-nav a.active{
-  background:gold;
-  color:black;
-}
-
-/* layout */
-.container{
-  max-width:1000px;
-  margin:auto;
-  padding:20px;
-}
-
-/* panel */
-.panel{display:none;}
-.panel.active{display:block;}
-
-/* HERO */
-.hero{
-  position:relative;
-  border-radius:14px;
-  overflow:hidden;
-  margin-bottom:20px;
-}
-
-.hero img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  filter:brightness(0.7);
-}
-
-.hero-text{
-  position:absolute;
-  bottom:10px;
-  left:10px;
-}
-
-.hero-text h2{
-  font-size:26px;
-  color:gold;
-}
-
-/* card */
-.card{
-  background:rgba(255,215,0,0.05);
-  border:1px solid rgba(255,215,0,0.2);
-  padding:15px;
-  border-radius:12px;
-  margin-bottom:15px;
-}
-
-/* grid */
-.grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:12px;
-}
-
-@media(min-width:600px){
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(min-width:900px){
-  .grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-}
-
-.card img{
-  width:100%;
-  border-radius:8px;
-  margin-top:10px;
-}
-
-footer{
-  text-align:center;
-  padding:20px;
-  color:#777;
-  font-size:12px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="bg"></div>
-
-<header>
-  <h1>𓂀 Egyptian Gods</h1>
-
-  <nav>
-    <a class="active" onclick="show('home', this)">Anubis</a>
-    <a onclick="show('gods', this)">Gods</a>
-    <a onclick="show('afterlife', this)">Pyramids</a>
-  </nav>
-</header>
-
-<div class="container">
-
-<!-- ANUBIS -->
-<div id="home" class="panel active">
-
-  <div class="hero">
-    <img loading="lazy" src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1200&q=80">
-    <div class="hero-text">
-      <h2>Anubis</h2>
-      <p>Guardian of the dead and guide of souls.</p>
+      <article class="tier-card">
+        <span class="tier-badge">Premium tier</span>
+        <h3>Founders Signal</h3>
+        <div class="tier-price">€85</div>
+        <p class="tier-note">A premium support tier for early backers and superfans.</p>
+        <ul>
+          <li>Everything in Long Day Collector</li>
+          <li>Special thanks credit in the book</li>
+          <li>Private supporter Q&amp;A update</li>
+          <li>Limited availability</li>
+        </ul>
+      </article>
     </div>
   </div>
+</section>
 
-  <div class="card">
-    <h2>The Guardian</h2>
-    <p>Anubis protected tombs and guided souls through the afterlife.</p>
+<section class="section" id="physical-edition">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Physical edition</p>
+        <h2>Paperbacks and hardcovers</h2>
+      </div>
+      <p>The campaign will start with a digital-first release. Paperback and hardcover editions will only be unlocked if funding covers production, printing, and shipping in a sustainable way [web:103][page:1].</p>
+    </div>
+
+    <div class="feature">
+      <h3>Digital first</h3>
+      <p>The first edition of A Long Day will be released digitally. This keeps the campaign realistic and focused while the book is being finished, edited, and prepared for release.</p>
+
+      <h3 style="margin-top:1.5rem;">Printed editions if funding allows</h3>
+      <p>If the campaign raises enough to cover manufacturing and fulfillment, we will offer a physical edition. The exact format and price will depend on the final costs for paperback and hardcover production, packaging, and shipping.</p>
+
+      <h3 style="margin-top:1.5rem;">Why this matters</h3>
+      <p>This approach keeps expectations clear: backers know the book will definitely exist in digital form, and any printed version will be a funded stretch beyond that core release.</p>
+    </div>
   </div>
-
-</div>
-
-<!-- GODS -->
-<div id="gods" class="panel">
-  <div class="grid">
-
-    <div class="card">
-      <h3>Ra</h3>
-      <img loading="lazy" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80">
-      <p>Sun god and creator.</p>
-    </div>
-
-    <div class="card">
-      <h3>Osiris</h3>
-      <img loading="lazy" src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80">
-      <p>Lord of the underworld.</p>
-    </div>
-
-    <div class="card">
-      <h3>Isis</h3>
-      <img loading="lazy" src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f0e?auto=format&fit=crop&w=800&q=80">
-      <p>Goddess of magic.</p>
-    </div>
-
-    <div class="card">
-      <h3>Horus</h3>
-      <img loading="lazy" src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=800&q=80">
-      <p>God of the sky.</p>
-    </div>
-
-  </div>
-</div>
-
-<!-- PYRAMIDS -->
-<div id="afterlife" class="panel">
-  <div class="grid">
-
-    <div class="card">
-      <h3>Great Pyramid</h3>
-      <img loading="lazy" src="https://images.unsplash.com/photo-1505739773440-2db1f1c3a2c3?auto=format&fit=crop&w=800&q=80">
-      <p>Ancient wonder of Egypt.</p>
-    </div>
-
-    <div class="card">
-      <h3>Pyramid Desert</h3>
-      <img loading="lazy" src="https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=800&q=80">
-      <p>Gateway to the afterlife.</p>
-    </div>
-
-  </div>
-</div>
-
-</div>
-
-<footer>
-Ancient Egypt • Mobile Ready
-</footer>
-
-<script>
-function show(id, el){
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-
-  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-  el.classList.add('active');
-}
-</script>
-
-</body>
-</html>
+</section>
