@@ -1,76 +1,149 @@
-<section class="section" id="tiers">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">Reward tiers</p>
-        <h2>Choose your level of support</h2>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ENZMINGER & WOLF — A LONG DAY Kickstarter campaign page." />
+  <title>ENZMINGER & WOLF — A LONG DAY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(3rem, 1.4rem + 4vw, 5.5rem);
+      --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem;
+      --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem;
+      --color-bg: #f6f1ea; --color-surface: rgba(255,255,255,0.76); --color-surface-2: rgba(245,239,231,0.86);
+      --color-border: rgba(67,46,34,0.14); --color-text: #231b17; --color-text-muted: #66544a;
+      --color-primary: #bb8458; --color-primary-hover: #9b6a44; --color-panel: rgba(24,17,15,0.8);
+      --shadow-md: 0 16px 48px rgba(40,26,20,0.12); --shadow-lg: 0 26px 90px rgba(40,26,20,0.18);
+      --radius-md: 0.75rem; --radius-lg: 1rem; --radius-xl: 1.5rem; --radius-full: 9999px;
+      --font-display: 'Cormorant Garamond', Georgia, serif; --font-body: 'Inter', Arial, sans-serif; --content: 1180px;
+    }
+    [data-theme="dark"] {
+      --color-bg: #08090d; --color-surface: rgba(16,19,28,0.72); --color-surface-2: rgba(24,28,41,0.92);
+      --color-border: rgba(219,195,161,0.16); --color-text: #f6efe6; --color-text-muted: #c9b7a4;
+      --color-primary: #d6a06b; --color-primary-hover: #e5b583; --color-panel: rgba(9,12,18,0.78);
+      --shadow-md: 0 20px 56px rgba(0,0,0,0.38); --shadow-lg: 0 30px 110px rgba(0,0,0,0.55);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-text-size-adjust:none;text-size-adjust:none;scroll-behavior:smooth}
+    body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);line-height:1.72;color:var(--color-text);background:radial-gradient(circle at 20% 0%, rgba(98,125,220,0.18), transparent 22%),radial-gradient(circle at 80% 10%, rgba(214,160,107,0.14), transparent 24%),linear-gradient(180deg, #05070d 0%, #0b1120 38%, var(--color-bg) 100%);background-color:var(--color-bg)}
+    img,svg{display:block;max-width:100%;height:auto}
+    a{text-decoration:none;color:inherit}
+    button,input{font:inherit}
+    button{background:none;border:none;cursor:pointer;color:inherit}
+    .wrap{width:min(calc(100% - 2rem), var(--content));margin-inline:auto}
+    .topbar{position:sticky;top:0;z-index:40;background:rgba(5,7,13,0.7);backdrop-filter:blur(16px);border-bottom:1px solid var(--color-border)}
+    .topbar-inner{display:flex;justify-content:space-between;align-items:center;gap:var(--space-4);padding:var(--space-4) 0}
+    .brand{display:flex;align-items:center;gap:var(--space-3)}
+    .brand-mark{width:2.5rem;height:2.5rem;color:var(--color-primary)}
+    .brand-copy strong{display:block;font-family:var(--font-display);font-size:var(--text-lg);letter-spacing:0.06em}
+    .brand-copy span{display:block;font-size:var(--text-xs);letter-spacing:0.2em;text-transform:uppercase;color:var(--color-text-muted)}
+    .nav{display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center}
+    .nav a,.theme-toggle,.cta-mini{min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 var(--space-4);border:1px solid var(--color-border);border-radius:var(--radius-full)}
+    .cta-mini{background:var(--color-primary);color:#140f0d;border-color:transparent;font-weight:700}
+    .hero{padding:0 0 var(--space-16)}
+    .hero-stage{min-height:88vh;display:grid;align-items:end;position:relative;overflow:hidden;border-radius:0 0 2rem 2rem;background:linear-gradient(180deg, rgba(3,5,10,0.2) 0%, rgba(3,5,10,0.58) 45%, rgba(3,5,10,0.92) 100%),url('./assets/hero-spaceship.jpeg') center 28%/cover no-repeat;box-shadow:var(--shadow-lg)}
+    .hero-stage::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 72% 20%, rgba(164,200,255,0.18), transparent 16%), radial-gradient(circle at 24% 16%, rgba(214,160,107,0.16), transparent 20%);pointer-events:none}
+    .hero-content{position:relative;z-index:1;padding:clamp(6rem,10vw,9rem) 0 var(--space-12)}
+    .eyebrow{font-size:var(--text-sm);letter-spacing:0.22em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-4)}
+    h1,h2,h3{font-family:var(--font-display);line-height:1.04}
+    h1{font-size:var(--text-3xl);max-width:8ch}
+    h2{font-size:var(--text-2xl)}
+    h3{font-size:var(--text-xl)}
+    .lead{max-width:58ch;margin-top:var(--space-4);color:#efe2d3}
+    .sublead{max-width:36ch;margin-top:var(--space-4);font-size:var(--text-lg);color:#d7c6b3}
+    .hero-actions{display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--space-6)}
+    .button-primary,.button-secondary{min-height:48px;display:inline-flex;align-items:center;justify-content:center;padding:0 var(--space-5);border-radius:var(--radius-full)}
+    .button-primary{background:var(--color-primary);color:#140f0d;font-weight:800}
+    .button-secondary{border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.03)}
+    .glass-row{margin-top:calc(-1 * var(--space-8));position:relative;z-index:3}
+    .glass-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:var(--space-5)}
+    .panel,.card,.feature,.signup-box,.faq-item,.excerpt-box{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);box-shadow:var(--shadow-md)}
+    .panel,.card,.feature,.signup-box,.faq-item,.excerpt-box{padding:var(--space-5)}
+    .meta-line,.card p,.feature p,.faq-item p,.signup-box p{color:var(--color-text-muted)}
+    .section{padding:var(--space-12) 0}
+    .section-head{display:grid;grid-template-columns:0.85fr 1.15fr;gap:var(--space-6);align-items:end;margin-bottom:var(--space-6)}
+    .section-head p{color:var(--color-text-muted);max-width:60ch}
+    .book-layout{display:grid;grid-template-columns:0.78fr 1.22fr;gap:var(--space-6);align-items:start}
+    .cover-card img{width:100%;border-radius:calc(var(--radius-xl) - var(--space-5));box-shadow:var(--shadow-md)}
+    .story-grid,.preview-grid,.authors-grid,.campaign-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
+    .preview-card img,.cover-card img{aspect-ratio:4/5;object-fit:cover}
+    .preview-card img{width:100%;border-radius:calc(var(--radius-xl) - var(--space-5));margin-bottom:var(--space-4)}
+    .campaign-grid .feature,.authors-grid .feature,.story-grid .feature{min-height:100%}
+    .prose{display:grid;gap:var(--space-4)}
+    .excerpt-box blockquote{font-size:var(--text-lg);font-family:var(--font-display);color:var(--color-text);margin-bottom:var(--space-4)}
+    .excerpt-box .excerpt{display:grid;gap:var(--space-4);white-space:pre-line;color:var(--color-text)}
+    .signup-layout{display:grid;grid-template-columns:1.08fr 0.92fr;gap:var(--space-5)}
+
+    .tiers-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-4)}
+    .tier-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-4)}
+    .tier-card.featured{border-color:rgba(214,160,107,0.6);transform:translateY(-6px)}
+    .tier-price{font-size:var(--text-2xl);font-family:var(--font-display);color:var(--color-primary)}
+    .tier-note{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .tier-card ul{list-style:none;display:grid;gap:var(--space-2)}
+    .tier-card li{padding-left:1rem;position:relative;color:var(--color-text-muted)}
+    .tier-card li::before{content:'•';position:absolute;left:0;color:var(--color-primary)}
+    .tier-badge{align-self:flex-start;padding:0.35rem 0.75rem;border-radius:var(--radius-full);background:rgba(214,160,107,0.14);color:var(--color-primary);font-size:var(--text-xs);letter-spacing:0.14em;text-transform:uppercase}
+    label{display:block;font-size:var(--text-sm);font-weight:600;margin-bottom:var(--space-3)}
+    .form-row{display:flex;gap:var(--space-3);flex-wrap:wrap}
+    input{flex:1 1 260px;min-height:50px;padding:0 var(--space-4);border-radius:var(--radius-full);border:1px solid var(--color-border);background:var(--color-surface-2);color:var(--color-text)}
+    .signup-box button{min-height:50px;padding:0 var(--space-5);border-radius:var(--radius-full);background:var(--color-primary);color:#140f0d;font-weight:800;border:none}
+    .mini-stack{display:grid;gap:var(--space-3)}
+    .mini-stack div{padding:var(--space-4);border-radius:var(--radius-lg);background:var(--color-surface-2);border:1px solid var(--color-border)}
+    .faq{display:grid;gap:var(--space-4)}
+    ul.clean{list-style:none;display:grid;gap:var(--space-3)}
+    ul.clean li{padding-left:1.2rem;position:relative}
+    ul.clean li::before{content:'•';position:absolute;left:0;color:var(--color-primary)}
+    footer{padding:var(--space-12) 0 var(--space-16);color:var(--color-text-muted);font-size:var(--text-sm)}
+    @media (max-width: 980px){.glass-grid,.book-layout,.story-grid,.preview-grid,.authors-grid,.campaign-grid,.signup-layout,.section-head,.tiers-grid{grid-template-columns:1fr}.topbar-inner{flex-direction:column;align-items:flex-start}.hero-stage{min-height:78vh;background-position:center center}}
+    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M10 50L22 14L32 34L42 14L54 50" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 50H46" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+          <path d="M24 28L18 20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <path d="M40 28L46 20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="brand-copy">
+          <strong>ENZMINGER &amp; WOLF</strong>
+          <span>A LONG DAY</span>
+        </div>
       </div>
-      <p>The first release of A Long Day will be digital only. A printed paperback or hardcover edition will only happen if the campaign raises enough to cover production, printing, and shipping costs [web:103][web:106]. For the first 48 hours, the digital tiers are discounted as early bird rewards.</p>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#book">Book</a>
+        <a href="#excerpt">Excerpt</a>
+        <a href="#design">Design</a>
+        <a href="#support">Support</a>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme">☼</button>
+        <a href="#signup" class="cta-mini">Notify me</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="tiers-grid">
-      <article class="tier-card">
-        <span class="tier-badge">Entry tier</span>
-        <h3>Observer</h3>
-        <div class="tier-price">€1</div>
-        <p class="tier-note">A simple way to follow the project early and show support.</p>
-        <ul>
-          <li>Backer-only campaign updates</li>
-          <li>Launch news access</li>
-          <li>Thank-you mention in updates</li>
-        </ul>
-      </article>
-
-      <article class="tier-card">
-        <span class="tier-badge">Support tier</span>
-        <h3>Super Observer</h3>
-        <div class="tier-price">€5</div>
-        <p class="tier-note">A louder show of support for readers who want to stay close to the project.</p>
-        <ul>
-          <li>All Observer rewards</li>
-          <li>Early project news</li>
-          <li>Backer-only progress notes</li>
-        </ul>
-      </article>
-
-      <article class="tier-card featured">
-        <span class="tier-badge">Early bird</span>
-        <h3>Digital Book</h3>
-        <div class="tier-price">€12</div>
-        <p class="tier-note">Discounted for the first 48 hours.</p>
-        <ul>
-          <li>DRM-free ebook edition</li>
-          <li>Signed digital bookplate PDF</li>
-          <li>Behind-the-scenes notes or devlog PDF</li>
-          <li>All previous rewards</li>
-        </ul>
-      </article>
-
-      <article class="tier-card">
-        <span class="tier-badge">Early bird</span>
-        <h3>Hero Edition</h3>
-        <div class="tier-price">€22</div>
-        <p class="tier-note">The main reading tier with a stronger early-backer price.</p>
-        <ul>
-          <li>Everything in Digital Book</li>
-          <li>Name on supporter page</li>
-          <li>Priority access to future add-ons</li>
-          <li>48-hour early bird price</li>
-        </ul>
-      </article>
-
-      <article class="tier-card">
-        <span class="tier-badge">Early bird</span>
-        <h3>Collector</h3>
-        <div class="tier-price">€39</div>
-        <p class="tier-note">For readers who want the richer campaign package.</p>
-        <ul>
-          <li>Everything in Hero Edition</li>
-          <li>Limited digital poster set</li>
-          <li>Special thanks credit in the book</li>
-          <li>Limited availability</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
+  <main>
+    <section class="hero">
+      <div class="hero-stage">
+        <div class="wrap hero-content">
+          <p class="eyebrow">Kickstarter campaign website</p>
+          <h1>ENZMINGER &amp; WOLF<br>A LONG DAY</h1>
+          <p class="sublead">written under the names Enzminger Anpu &amp; Daemon Wolf</p>
+          <p class="lead">Publishing A Long Day — A Raw Science Fiction Novella. An early wake-up from cryo. A dying Earth. And a suit you put on… or you don’t survive.</p>
+          <div class="hero-actions">
+            <a class="button-primary" href="#signup">Join the launch list</a>
+            <a class="button-secondary" href="#excerpt">Read the excerpt</a>
+          </div>
+        </div>
+      </div>
